@@ -23,6 +23,6 @@ export default function decorate(block) {
   `;
   const section = document.createElement('section');
   section.insertAdjacentHTML('beforeend', cardBody);
-  block.textContent = '';
+//  block.textContent = '';
   block.append(section);
 }
