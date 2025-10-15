@@ -2,7 +2,8 @@ export default function decorate(block) {
   const headerText = block.querySelector('h1').textContent.trim();
   const bodyHTML = block;
   bodyHTML.querySelector('h1').remove();
-  const cardBody = `
+  const section = document.createElement('section');
+  section.innerHTML = `
       <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
         <div class="nhsuk-card--care__heading-container">
             <h2 class="nhsuk-card--care__heading">
@@ -14,12 +15,14 @@ export default function decorate(block) {
         </div>
         
         <div class="nhsuk-card__content">
-        ${bodyHTML}
+          <div id="cardBodyTextPlaceholder"></div>
         </div>
     </div>
   `;
-  const section = document.createElement('section');
-  section.insertAdjacentHTML('beforeend', cardBody);
-//  block.textContent = '';
+  const cardBodyTextPlaceholder = section.querySelector('#cardBodyTextPlaceholder');
+  if (cardBodyTextPlaceholder && bodyHTML) {
+    cardBodyTextPlaceholder.replaceWith (bodyHTML);
+  }
+  block.textContent = '';
   block.append(section);
 }
