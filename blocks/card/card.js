@@ -1,8 +1,5 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
-
 export default function decorate(block) {
   const headerText = block.querySelector('h1').textContent.trim();
-  
   const cardBody = `
       <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
         <div class="nhsuk-card--care__heading-container">
@@ -24,9 +21,9 @@ export default function decorate(block) {
         </div>
     </div>
   `
-const section = document.createElement('section');
-section.insertAdjacentHTML('beforeend', cardBody);
-  
-block.textContent = '';
-block.append(section);
+  const section = document.createElement('section');
+  section.insertAdjacentHTML('beforeend', cardBody);
+    
+  block.textContent = '';
+  block.append(section);
 }
