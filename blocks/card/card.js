@@ -1,7 +1,5 @@
-export default function decorate(block, config={}) {
-  const metadata = config.metadata;
-  console.log (JSON.stringify(config));
-  const cardType = metadata?.cardType || "nonUrgent";
+export default function decorate(block) {
+  const cardType = block.getAttribute('data-cardtype');
   const cardClass = cardType || "nhsuk-card--care--non-urgent";
   const headerText = block.querySelector('h1').textContent.trim();
   const bodyHTML = block.cloneNode(true);
