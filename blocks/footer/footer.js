@@ -52,3 +52,4 @@ const footerHTML =`
 `;
   block.textContent = '';
   block.innerHTML = footerHTML;
+}
