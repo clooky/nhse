@@ -1,6 +1,6 @@
 export default function decorate(block, config) {
   const metadata = config?.metadata || {};
-  console.log (JSON.stringify(metadata));
+  console.log (config.metadata);
   const cardType = metadata.cardType;
   const cardClass = cardType || "nhsuk-card--care--non-urgent";
   const headerText = block.querySelector('h1').textContent.trim();
