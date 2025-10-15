@@ -1,5 +1,7 @@
 export default function decorate(block) {
   const headerText = block.querySelector('h1').textContent.trim();
+  const bodyHTML = block;
+  bodyHtml.querySelector('h1').remove();
   const cardBody = `
       <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
         <div class="nhsuk-card--care__heading-container">
@@ -12,12 +14,7 @@ export default function decorate(block) {
         </div>
         
         <div class="nhsuk-card__content">
-            <ul>
-                <li>you have tummy or back pain that does not go away or keeps coming back</li>
-                <li>you feel a lump in your tummy</li>
-            </ul>
-            <p>These symptoms can be caused by lots of things and do not mean you have an
-                abdominal aortic aneurysm, but it's best to get them checked.</p>
+        ${bodyHtml}
         </div>
     </div>
   `;
