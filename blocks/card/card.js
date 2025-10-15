@@ -1,5 +1,5 @@
 export default function decorate(block) {
-  const cardType = block.getAttribute('data-cardtype');
+  const cardType = block.closest('.section').getAttribute('data-cardtype');
   console.log (cardType);
   const cardClass = cardType || "nhsuk-card--care--non-urgent";
   const headerText = block.querySelector('h1').textContent.trim();
