@@ -1,7 +1,7 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
 export default function decorate(block) {
-  const headerText = "See a GP if:";
+  const headerText = block.querySelector('h1');
   
   const cardBody = `
       <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
