@@ -1,7 +1,7 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
 export default function decorate(block) {
-  const headerText = block.querySelector('h1');
+  const headerText = block.querySelector('h1').textContent.trim();
   
   const cardBody = `
       <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
