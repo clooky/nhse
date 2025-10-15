@@ -20,10 +20,9 @@ export default function decorate(block) {
                 abdominal aortic aneurysm, but it's best to get them checked.</p>
         </div>
     </div>
-  `
+  `;
   const section = document.createElement('section');
   section.insertAdjacentHTML('beforeend', cardBody);
-    
   block.textContent = '';
   block.append(section);
 }
