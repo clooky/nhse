@@ -107,7 +107,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
  * loads and decorates the header, mainly the nav
  * @param {Element} block The header block element
  */
-export default async function decorate(block) {
+export default async function decorater(block) {
   // load nav as fragment
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
@@ -163,4 +163,38 @@ export default async function decorate(block) {
   navWrapper.className = 'nav-wrapper';
   navWrapper.append(nav);
   block.append(navWrapper);
+}
+
+export default async function decorate(block) {
+  const headerHTML =`
+  <nav class="nhsuk-header__navigation" aria-label="Menu">
+    <div class="nhsuk-header__navigation-container nhsuk-width-container">
+      <ul class="nhsuk-header__navigation-list">
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="#">NHS service standard</a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="#">Design system</a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="#">Content guide</a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="#">Accessibility</a>
+        </li>
+        <li class="nhsuk-header__navigation-item">
+          <a class="nhsuk-header__navigation-link" href="#">Community and contribution</a>
+        </li>
+        <li class="nhsuk-header__menu" hidden>
+          <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
+            <span class="nhsuk-u-visually-hidden">Browse </span>More
+          </button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</header>
+`;
+  block.textContent = '';
+  block.append(headerHTML);
 }
