@@ -1,10 +1,13 @@
-export default function decorate(block) {
+export default function decorate(block, config) {
+  const metadata = config?.metadata || {};
+  const cardType = metadata.cardType;
+  const cardClass = cardType || "nhsuk-card--care--non-urgent";
   const headerText = block.querySelector('h1').textContent.trim();
   const bodyHTML = block.cloneNode(true);
   bodyHTML.querySelector('h1').remove();
   const section = document.createElement('section');
   section.innerHTML = `
-      <div class="nhsuk-card nhsuk-card--care nhsuk-card--care--non-urgent">
+      <div class="nhsuk-card nhsuk-card--care ${cardClass}">
         <div class="nhsuk-card--care__heading-container">
             <h2 class="nhsuk-card--care__heading">
                 <span role="text">
