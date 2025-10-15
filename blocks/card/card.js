@@ -1,7 +1,7 @@
 import { getMetadata } from '../../scripts/aem.js';
 export default function decorate(block, config) {
   const abc = block.closest('.section');
-  const metadata = getMetaData (abc);
+  const metadata = getMetadata (abc);
   console.log (config.metadata);
   const cardType = metadata.cardType;
   const cardClass = cardType || "nhsuk-card--care--non-urgent";
