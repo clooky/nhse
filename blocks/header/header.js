@@ -198,5 +198,5 @@ export default async function decorate(block) {
 </header>
 `;
   block.textContent = '';
-  block.append(headerHTML);
+  block.innerHTML = headerHTML;
 }
