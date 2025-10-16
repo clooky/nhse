@@ -3,7 +3,7 @@
  * in the AEM boilerplate project.
  * @param {HTMLElement} mainEl the <main> element
  */
-export function decorateMainElement(mainEl) {
+function decorateMainElement(mainEl) {
   if (!mainEl) return;
   const wrapper = document.createElement('div');
   wrapper.classList.add('nhsuk-width-container');
@@ -17,3 +17,4 @@ export function decorateMainElement(mainEl) {
   mainEl.parentNode.insertBefore(wrapper, mainEl);
   wrapper.appendChild(mainEl);
 }
+export default decorateMainElement;
