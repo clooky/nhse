@@ -12,6 +12,7 @@ import {
   loadSections,
   loadCSS,
 } from './aem.js';
+import { decorateMainElement } from './decorators/mainAttributes.js';
 
 /**
  * Builds hero block and prepends to main in a new section.
@@ -122,6 +123,8 @@ function loadDelayed() {
 
 async function loadPage() {
   await loadEager(document);
+  const mainEl = document.querySelector('main');
+  decorateMainElement(mainEl);
   await loadLazy(document);
   loadDelayed();
 }
