@@ -3,7 +3,7 @@
  * in the AEM boilerplate project.
  * @param {HTMLElement} mainEl the <main> element
  */
-export default function decorateMainElement(mainEl) {
+export default async function decorateMainElement(mainEl) {
   if (!mainEl) return;
   const wrapper = document.createElement('div');
   wrapper.classList.add('nhsuk-width-container');
