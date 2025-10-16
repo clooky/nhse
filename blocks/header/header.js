@@ -1,4 +1,4 @@
-import { loadFragment } from '../fragment/fragment.js';
+// import { loadFragment } from '../fragment/fragment.js';
 
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 900px)');
@@ -167,7 +167,7 @@ export default async function decorate(block) {
 */
 
 export default async function decorate(block) {
-  const headerHTML =`
+  const headerHTML = `
 <header class="nhsuk-header" role="banner" data-module="nhsuk-header">
   <div class="nhsuk-header__container nhsuk-width-container">
     <div class="nhsuk-header__service">
