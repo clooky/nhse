@@ -1,5 +1,5 @@
-import { getMetadata } from '../../scripts/aem.js';
-import { loadFragment } from '../fragment/fragment.js';
+//import { getMetadata } from '../../scripts/aem.js';
+//import { loadFragment } from '../fragment/fragment.js';
 
 /**
  * loads and decorates the footer
@@ -22,34 +22,34 @@ export default async function decorate(block) {
 */
 
 export default async function decorate(block) {
-const footerHTML =`
-<footer class="nhsuk-footer" role="contentinfo">
-  <div class="nhsuk-width-container">
-    <div class="nhsuk-footer__meta">
-      <h2 class="nhsuk-u-visually-hidden">Support links</h2>
-      <ul class="nhsuk-footer__list">
-        <li class="nhsuk-footer__list-item">
-          <a class="nhsuk-footer__list-item-link" href="#">Accessibility statement</a>
-        </li>
-        <li class="nhsuk-footer__list-item">
-          <a class="nhsuk-footer__list-item-link" href="#">Contact us</a>
-        </li>
-        <li class="nhsuk-footer__list-item">
-          <a class="nhsuk-footer__list-item-link" href="#">Cookies</a>
-        </li>
-        <li class="nhsuk-footer__list-item">
-          <a class="nhsuk-footer__list-item-link" href="#">Privacy policy</a>
-        </li>
-        <li class="nhsuk-footer__list-item">
-          <a class="nhsuk-footer__list-item-link" href="#">Terms and conditions</a>
-        </li>
-      </ul>
-
-      <p class="nhsuk-body-s">© NHS England</p>
+  const footerHTML = `
+  <footer class="nhsuk-footer" role="contentinfo">
+    <div class="nhsuk-width-container">
+      <div class="nhsuk-footer__meta">
+        <h2 class="nhsuk-u-visually-hidden">Support links</h2>
+        <ul class="nhsuk-footer__list">
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Accessibility statement</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Contact us</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Cookies</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Privacy policy</a>
+          </li>
+          <li class="nhsuk-footer__list-item">
+            <a class="nhsuk-footer__list-item-link" href="#">Terms and conditions</a>
+          </li>
+        </ul>
+  
+        <p class="nhsuk-body-s">© NHS England</p>
+      </div>
     </div>
-  </div>
-</footer>
-`;
+  </footer>
+  `;
   block.textContent = '';
   block.innerHTML = footerHTML;
 }
