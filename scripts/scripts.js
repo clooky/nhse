@@ -12,7 +12,7 @@ import {
   loadSections,
   loadCSS,
 } from './aem.js';
-import { decorateMainElement } from './decorators/mainElement.js';
+import decorateMainElement from './decorators/mainElement.js';
 
 /**
  * Builds hero block and prepends to main in a new section.
