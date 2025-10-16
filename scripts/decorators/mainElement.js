@@ -3,7 +3,7 @@
  * in the AEM boilerplate project.
  * @param {HTMLElement} mainEl the <main> element
  */
-export function decorateMainAttributes(mainEl) {
+export function decorateMainElement(mainEl) {
   if (!mainEl) return;
   // Example: static or dynamic attribute values:
   mainEl.setAttribute('data-region', window.location.hostname.includes('localhost') ? 'dev' : 'prod');
