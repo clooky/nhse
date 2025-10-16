@@ -1,7 +1,6 @@
 export default function decorate(block) {
   const cardType = block.closest('.section').getAttribute('data-cardtype');
-  console.log (cardType);
-  const cardClass = cardType || "nhsuk-card--care--non-urgent";
+  const cardClass = cardType || 'nhsuk-card--care--non-urgent';
   const headerText = block.querySelector('h1').textContent.trim();
   const bodyHTML = block.cloneNode(true);
   bodyHTML.querySelector('h1').remove();
@@ -24,7 +23,7 @@ export default function decorate(block) {
   `;
   const cardBodyTextPlaceholder = section.querySelector('#cardBodyTextPlaceholder');
   if (cardBodyTextPlaceholder && bodyHTML) {
-    cardBodyTextPlaceholder.replaceWith (bodyHTML);
+    cardBodyTextPlaceholder.replaceWith(bodyHTML);
   }
   block.textContent = '';
   block.append(section);
