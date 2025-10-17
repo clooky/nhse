@@ -6,7 +6,7 @@ export default function decorate(block) {
   ul.className = 'nhsuk-grid-row nhsuk-card-group';
   [...block.children].forEach((row) => {
     const li = document.createElement('li');
-    li.className = 'nhsuk-grid-column-two-thirds nhsuk-card-group__item';
+    li.className = 'nhsuk-grid-column-half nhsuk-card-group__item';
     while (row.firstElementChild) li.append(row.firstElementChild);
     [...li.children].forEach((div) => {
       if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
