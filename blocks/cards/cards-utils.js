@@ -41,21 +41,21 @@ function processTemplateCard (cardTemplate,href,linkText,descriptionNode) {
 function processCard (currentCard, ctx) {
   let li = null;
   const cardAnchor = currentCard.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a');
-  const linkHref = cardAnchor.getAttribute('href');
-  const linkText = cardAnchor.textContent;
+  const linkHref = cardAnchor?.getAttribute('href') || '';
+  const linkText = cardAnchor?.textContent || '';
   
-  currentChild.querySelectorAll(':scope > *').forEach(child => {
+  currentCard.querySelectorAll(':scope > *').forEach(child => {
     if (child.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a')) {
       child.remove();
     }
   });
   
   if (ctx.isTop) {
-    li = processTemplateCard (topCardTemplate,linkHref,linkText,currentChild);
+    li = processTemplateCard (topCardTemplate,linkHref,linkText,currentCard);
   } else if (ctx.isPrimary) {
-    li = processTemplateCard (primaryCardTemplate,linkHref,linkText,currentChild);
+    li = processTemplateCard (primaryCardTemplate,linkHref,linkText,currentCard);
   } else {
-    li = processTemplateCard (secondaryCardTemplate,linkHref,linkText,currentChild);
+    li = processTemplateCard (secondaryCardTemplate,linkHref,linkText,currentCard);
   }
   return li
 }
