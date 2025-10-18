@@ -18,6 +18,9 @@ function processTopCard (currentCard) {
   const linkText = cardAnchor.textContent;
 //  let newCard = primaryCardTemplate;
   console.log (`href = ${linkHref} and text = ${linkText} `);
+  const li = document.createElement('li');
+  li.className = 'nhsuk-grid-column-half nhsuk-card-group__item';
+  return li
 }
 
 
@@ -35,8 +38,8 @@ export default function decorate(block) {
     // process card
     if (ctx.isTop) {
       // process top card
-      processTopCard(row);
-    } 
+      const li = processTopCard(row);
+    } else {
       const li = document.createElement('li');
       li.className = 'nhsuk-grid-column-half nhsuk-card-group__item';
       while (row.firstElementChild) li.append(row.firstElementChild);
@@ -44,7 +47,7 @@ export default function decorate(block) {
         if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
         else div.className = 'cards-card-body';
       });
-
+    }
     ul.append(li);
     // end of process card
   });
