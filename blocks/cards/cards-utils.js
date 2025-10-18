@@ -10,7 +10,8 @@ const primaryCardTemplate = `
     <div class="nhsuk-card nhsuk-card--clickable">
       <div class="nhsuk-card__content nhsuk-card__content--primary">
         <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="[HREF]">[LINKTEXT]</a> </h2>
-        <p class="nhsuk-card__description">[CARDDESCRIPTION]</p> <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
+        <p class="nhsuk-card__description">[CARDDESCRIPTION]</p>
+        <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
           <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-.3 5.8a1 1 0 1 0-1.5 1.4l2.9 2.8-2.9 2.8a1 1 0 0 0 1.5 1.4l3.5-3.5c.4-.4.4-1 0-1.4Z" />
         </svg>
       </div>
@@ -27,27 +28,34 @@ const secondaryCardTemplate = `
 `;
 
 
-function processTemplateCard (currentCard,cardTemplate,href,linkText) {
-  const cardAnchor = currentCard.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a');
+function processTemplateCard (cardTemplate,href,linkText,descriptionNode) {
   const li = document.createElement('li');
   li.className = 'nhsuk-grid-column-one-third nhsuk-card-group__item';
   li.innerHTML = cardTemplate;
   li.querySelector('.nhsuk-card__link').href = href;
   li.querySelector('.nhsuk-card__link').innerHTML = linkText;
+  li.querySelector('.nhsuk-card__description').append(descriptionNode);
   return li
 }
 
 function processCard (currentCard, ctx) {
   let li = null;
-  const cardAnchor = currentCard.querySelector('a');
+  const cardAnchor = currentCard.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a');
   const linkHref = cardAnchor.getAttribute('href');
   const linkText = cardAnchor.textContent;
+  
+  currentChild.querySelectorAll(':scope > *').forEach(child => {
+    if (child.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a')) {
+      child.remove();
+    }
+  });
+  
   if (ctx.isTop) {
-    li = processTemplateCard (currentCard,topCardTemplate,linkHref,linkText);
+    li = processTemplateCard (topCardTemplate,linkHref,linkText,currentChild);
   } else if (ctx.isPrimary) {
-    li = processTemplateCard (currentCard,primaryCardTemplate,linkHref,linkText);
+    li = processTemplateCard (primaryCardTemplate,linkHref,linkText,currentChild);
   } else {
-    li = processTemplateCard (currentCard,secondaryCardTemplate,linkHref,linkText);
+    li = processTemplateCard (secondaryCardTemplate,linkHref,linkText,currentChild);
   }
   return li
 }
