@@ -1,5 +1,6 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
-
+import { processCard } from './cards-utils.js';
+/*
 const topCardTemplate = `
   <div class="nhsuk-card nhsuk-card--clickable">
     <div class="nhsuk-card__content">
@@ -53,7 +54,7 @@ function processCard (currentCard, ctx) {
   }
   return li
 }
-
+*/
 
 export default function decorate(block) {
   const ctx = {};
