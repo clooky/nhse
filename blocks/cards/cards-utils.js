@@ -28,13 +28,21 @@ const secondaryCardTemplate = `
 `;
 
 
-function processTemplateCard (cardTemplate,href,linkText,descriptionNode) {
+function processTemplateCard (cardTemplate,href,linkText,paragraphs) {
   const li = document.createElement('li');
   li.className = 'nhsuk-grid-column-one-third nhsuk-card-group__item';
   li.innerHTML = cardTemplate;
   li.querySelector('.nhsuk-card__link').href = href;
   li.querySelector('.nhsuk-card__link').innerHTML = linkText;
-  li.querySelector('.nhsuk-card__description').append(descriptionNode);
+  const descriptionNode = li.querySelector('.nhsuk-card__description');
+  if (descriptionNode) {
+    if (paragraphs) {
+      paragraphs.forEach(paragraph => {
+        li.insertBefore(paragraph,descriptionNode);
+      });
+    }
+    descriptionNode.remove();
+  }
   return li
 }
 
@@ -44,18 +52,20 @@ function processCard (currentCard, ctx) {
   const linkHref = cardAnchor?.getAttribute('href') || '';
   const linkText = cardAnchor?.textContent || '';
   
+  // remove the node where the heading anchor was as we don't need this now
   currentCard.querySelectorAll(':scope > *').forEach(child => {
     if (child.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a')) {
       child.remove();
     }
   });
+  const paragraphs = currentCard.querySelectorAll('p');
   
   if (ctx.isTop) {
-    li = processTemplateCard (topCardTemplate,linkHref,linkText,currentCard);
+    li = processTemplateCard (topCardTemplate,linkHref,linkText,paragraphs);
   } else if (ctx.isPrimary) {
-    li = processTemplateCard (primaryCardTemplate,linkHref,linkText,currentCard);
+    li = processTemplateCard (primaryCardTemplate,linkHref,linkText,paragraphs);
   } else {
-    li = processTemplateCard (secondaryCardTemplate,linkHref,linkText,currentCard);
+    li = processTemplateCard (secondaryCardTemplate,linkHref,linkText,paragraphs);
   }
   return li
 }
