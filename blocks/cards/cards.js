@@ -8,9 +8,6 @@ const primaryCardTemplate = `
     </div>
 `;
 
-function processCard (currentNode) {
-  
-}
 
 export default function decorate(block) {
   const ctx = {};
