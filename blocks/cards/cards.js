@@ -1,16 +1,12 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
-/*
 const primaryCardTemplate = `
-  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
-    <div class="nhsuk-card nhsuk-card--clickable">
-      <div class="nhsuk-card__content">
-        <h5 class="nhsuk-card__heading nhsuk-heading-xs"> <a class="nhsuk-card__link" href="[HREF]">[LINKTEXT]</a> </h5>
-      </div>
+  <div class="nhsuk-card nhsuk-card--clickable">
+    <div class="nhsuk-card__content">
+      <h5 class="nhsuk-card__heading nhsuk-heading-xs"> <a class="nhsuk-card__link" href="[HREF]">[LINKTEXT]</a> </h5>
     </div>
-  </li>
+  </div>
 `;
-*/
 
 function processTopCard (currentCard) {
   const cardAnchor = currentCard.querySelector('a');
@@ -20,6 +16,7 @@ function processTopCard (currentCard) {
   console.log (`href = ${linkHref} and text = ${linkText} `);
   const li = document.createElement('li');
   li.className = 'nhsuk-grid-column-half nhsuk-card-group__item';
+  li.innerHtml = primaryCardTemplate;
   return li
 }
 
