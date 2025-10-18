@@ -13,7 +13,7 @@ const primaryCardTemplate = `
 function processTopCard (currentCard) {
   const anchor = currentCard.querySelector('a');
   const linkHref = anchor.attribute('href');
-  const linkText anchor.textContent;
+  const linkText = anchor.textContent;
   let newCard = primaryCardTemplate;
   console.log (`href = ${linkHref} and text = ${linkText} `);
 }
