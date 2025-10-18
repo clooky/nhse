@@ -36,11 +36,12 @@ export default function decorate(block) {
   ul.className = 'nhsuk-grid-row nhsuk-card-group';
   [...block.children].forEach((row) => {
     // process card
+    let li = null;
     if (ctx.isTop) {
       // process top card
-      const li = processTopCard(row);
+      li = processTopCard(row);
     } else {
-      const li = document.createElement('li');
+      li = document.createElement('li');
       li.className = 'nhsuk-grid-column-half nhsuk-card-group__item';
       while (row.firstElementChild) li.append(row.firstElementChild);
       [...li.children].forEach((div) => {
