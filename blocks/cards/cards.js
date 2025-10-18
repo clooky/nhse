@@ -1,6 +1,11 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
 export default function decorate(block) {
+  const isTop = block.classList.contains('top');
+  const isPrimary = block.classList.contains('primary');
+  const isSecondary = block.classList.contains('secondary');
+  console.log (`isTop ${isTop} isPrimary ${isPrimary} isSecondary ${isSecondary} `);
+  
   /* change to ul, li */
   const ul = document.createElement('ul');
   ul.className = 'nhsuk-grid-row nhsuk-card-group';
