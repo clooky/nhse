@@ -16,7 +16,7 @@ function processTopCard (currentCard) {
   console.log (`href = ${linkHref} and text = ${linkText} `);
   const li = document.createElement('li');
   li.className = 'nhsuk-grid-column-half nhsuk-card-group__item';
-  li.innerHtml = primaryCardTemplate;
+  li.innerHTML = primaryCardTemplate;
   return li
 }
 
