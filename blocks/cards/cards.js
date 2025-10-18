@@ -1,11 +1,13 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
 const primaryCardTemplate = `
+  <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
     <div class="nhsuk-card nhsuk-card--clickable">
       <div class="nhsuk-card__content">
         <h5 class="nhsuk-card__heading nhsuk-heading-xs"> <a class="nhsuk-card__link" href="[HREF]">[LINKTEXT]</a> </h5>
       </div>
     </div>
+  </li>
 `;
 
 
@@ -21,13 +23,17 @@ export default function decorate(block) {
   ul.className = 'nhsuk-grid-row nhsuk-card-group';
   [...block.children].forEach((row) => {
     // process card
-    const li = document.createElement('li');
-    li.className = 'nhsuk-grid-column-half nhsuk-card-group__item';
-    while (row.firstElementChild) li.append(row.firstElementChild);
-    [...li.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-      else div.className = 'cards-card-body';
-    });
+    if (isTop) {
+      // process top card
+    } else {
+      const li = document.createElement('li');
+      li.className = 'nhsuk-grid-column-half nhsuk-card-group__item';
+      while (row.firstElementChild) li.append(row.firstElementChild);
+      [...li.children].forEach((div) => {
+        if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
+        else div.className = 'cards-card-body';
+      });
+    }
     ul.append(li);
     // end of process card
   });
