@@ -29,16 +29,6 @@ const secondaryCardTemplate = `
 `;
 
 
-function processTopCard (currentCard,href,linkText) {
-  const cardAnchor = currentCard.querySelector('a');
-  const li = document.createElement('li');
-  li.className = 'nhsuk-grid-column-half nhsuk-card-group__item';
-  li.innerHTML = topCardTemplate;
-  li.querySelector('.nhsuk-card__link').href = href;
-  li.querySelector('.nhsuk-card__link').innerHTML = linkText;
-  return li
-}
-
 function processTemplateCard (currentCard,cardTemplate,href,linkText) {
   const cardAnchor = currentCard.querySelector('a');
   const li = document.createElement('li');
@@ -77,19 +67,7 @@ export default function decorate(block) {
   ul.className = 'nhsuk-grid-row nhsuk-card-group';
   [...block.children].forEach((row) => {
     // process card
-    let li = null;
-    if (ctx.isTop) {
-      // process top card
-      li = processCard(row,ctx);
-    } else {
-      li = document.createElement('li');
-      li.className = 'nhsuk-grid-column-half nhsuk-card-group__item';
-      while (row.firstElementChild) li.append(row.firstElementChild);
-      [...li.children].forEach((div) => {
-        if (div.children.length === 1 && div.querySelector('picture')) div.className = 'cards-card-image';
-        else div.className = 'cards-card-body';
-      });
-    }
+    const li = processCard(row,ctx);
     ul.append(li);
     // end of process card
   });
