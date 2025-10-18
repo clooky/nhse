@@ -10,6 +10,14 @@ const primaryCardTemplate = `
   </li>
 `;
 
+function processTopCard (currentCard) {
+  const anchor = currentCard.querySelector('a');
+  const linkHref = anchor.attribute('href');
+  const linkText anchor.textContent;
+  let newCard = primaryCardTemplate;
+  console.log (`href = ${linkHref} and text = ${linkText} `);
+}
+
 
 export default function decorate(block) {
   const ctx = {};
@@ -25,6 +33,7 @@ export default function decorate(block) {
     // process card
     if (isTop) {
       // process top card
+      processTopCard (row);
     } else {
       const li = document.createElement('li');
       li.className = 'nhsuk-grid-column-half nhsuk-card-group__item';
