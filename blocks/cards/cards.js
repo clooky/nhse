@@ -22,8 +22,8 @@ const primaryCardTemplate = `
 const secondaryCardTemplate = `
     <div class="nhsuk-card nhsuk-card--clickable nhsuk-card--secondary">
       <div class="nhsuk-card__content nhsuk-card__content--secondary">
-        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">Urgent and emergency care services</a> </h2>
-        <p class="nhsuk-card__description">Services the NHS provides if you need urgent or emergency medical help</p>
+        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="[HREF]">[LINKTEXT]</a> </h2>
+        <p class="nhsuk-card__description">[CARDDESCRIPTION]</p>
       </div>
     </div>
 `;
