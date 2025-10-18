@@ -1,5 +1,13 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
+const topCardTemplate = `
+  <div class="nhsuk-card nhsuk-card--clickable">
+    <div class="nhsuk-card__content">
+      <h5 class="nhsuk-card__heading nhsuk-heading-xs"> <a class="nhsuk-card__link" href="[HREF]">[LINKTEXT]</a> </h5>
+    </div>
+  </div>
+`;
+
 const primaryCardTemplate = `
     <div class="nhsuk-card nhsuk-card--clickable">
       <div class="nhsuk-card__content nhsuk-card__content--primary">
@@ -10,35 +18,33 @@ const primaryCardTemplate = `
       </div>
     </div>
 `;
-const topCardTemplate = `
-  <div class="nhsuk-card nhsuk-card--clickable">
-    <div class="nhsuk-card__content">
-      <h5 class="nhsuk-card__heading nhsuk-heading-xs"> <a class="nhsuk-card__link" href="[HREF]">[LINKTEXT]</a> </h5>
+
+const secondaryCardTemplate = `
+    <div class="nhsuk-card nhsuk-card--clickable nhsuk-card--secondary">
+      <div class="nhsuk-card__content nhsuk-card__content--secondary">
+        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="#">Urgent and emergency care services</a> </h2>
+        <p class="nhsuk-card__description">Services the NHS provides if you need urgent or emergency medical help</p>
+      </div>
     </div>
-  </div>
 `;
 
 
-function processTopCard1 (currentCard,href,linkText) {
+function processTopCard (currentCard,href,linkText) {
   const cardAnchor = currentCard.querySelector('a');
   const li = document.createElement('li');
   li.className = 'nhsuk-grid-column-half nhsuk-card-group__item';
-  li.innerHTML = primaryCardTemplate;
+  li.innerHTML = topCardTemplate;
   li.querySelector('.nhsuk-card__link').href = href;
   li.querySelector('.nhsuk-card__link').innerHTML = linkText;
   return li
 }
 
-function processTopCard (currentCard) {
+function processTemplateCard (currentCard,cardTemplate,href,linkText) {
   const cardAnchor = currentCard.querySelector('a');
-  const linkHref = cardAnchor.getAttribute('href');
-  const linkText = cardAnchor.textContent;
-//  let newCard = topCardTemplate;
-  console.log (`href = ${linkHref} and text = ${linkText} `);
   const li = document.createElement('li');
   li.className = 'nhsuk-grid-column-half nhsuk-card-group__item';
-  li.innerHTML = primaryCardTemplate;
-  li.querySelector('.nhsuk-card__link').href = linkHref;
+  li.innerHTML = cardTemplate;
+  li.querySelector('.nhsuk-card__link').href = href;
   li.querySelector('.nhsuk-card__link').innerHTML = linkText;
   return li
 }
@@ -49,7 +55,7 @@ function processCard (currentCard, ctx) {
   const linkHref = cardAnchor.getAttribute('href');
   const linkText = cardAnchor.textContent;
   if (ctx.isTop) {
-    li = processTopCard1 (currentCard,linkHref,linkText);
+    li = processTemplateCard (currentCard,topCardTemplate,linkHref,linkText);
   }
   return li
 }
