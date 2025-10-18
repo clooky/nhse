@@ -8,7 +8,7 @@ const primaryCardTemplate = `
     </div>
 `;
 
-functionProcessCard (currentNode) {
+function processCard (currentNode) {
   
 }
 
