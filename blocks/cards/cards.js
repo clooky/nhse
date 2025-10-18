@@ -33,7 +33,7 @@ export default function decorate(block) {
   ul.className = 'nhsuk-grid-row nhsuk-card-group';
   [...block.children].forEach((row) => {
     // process card
-    if (isTop) {
+    if (ctx.isTop) {
       // process top card
       processTopCard(row);
     } else {
