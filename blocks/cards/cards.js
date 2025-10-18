@@ -1,4 +1,4 @@
-e import { createOptimizedPicture } from '../../scripts/aem.js';
+import { createOptimizedPicture } from '../../scripts/aem.js';
 
 const topCardTemplate = `
   <div class="nhsuk-card nhsuk-card--clickable">
