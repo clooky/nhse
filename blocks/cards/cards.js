@@ -32,7 +32,7 @@ const secondaryCardTemplate = `
 function processTemplateCard (currentCard,cardTemplate,href,linkText) {
   const cardAnchor = currentCard.querySelector('a');
   const li = document.createElement('li');
-  li.className = 'nhsuk-grid-column-half nhsuk-card-group__item';
+  li.className = 'nhsuk-grid-column-one-third nhsuk-card-group__item';
   li.innerHTML = cardTemplate;
   li.querySelector('.nhsuk-card__link').href = href;
   li.querySelector('.nhsuk-card__link').innerHTML = linkText;
