@@ -28,7 +28,7 @@ const secondaryCardTemplate = `
 
 
 function processTemplateCard (currentCard,cardTemplate,href,linkText) {
-  const cardAnchor = currentCard.querySelector('h1 a,h2 a,h3 a,h4 a,h5 a,h6 a,');
+  const cardAnchor = currentCard.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a');
   const li = document.createElement('li');
   li.className = 'nhsuk-grid-column-one-third nhsuk-card-group__item';
   li.innerHTML = cardTemplate;
