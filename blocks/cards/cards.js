@@ -1,5 +1,6 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
 
+/*
 const primaryCardTemplate = `
   <li class="nhsuk-grid-column-one-third nhsuk-card-group__item">
     <div class="nhsuk-card nhsuk-card--clickable">
@@ -9,12 +10,13 @@ const primaryCardTemplate = `
     </div>
   </li>
 `;
+*/
 
 function processTopCard (currentCard) {
-  const anchor = currentCard.querySelector('a');
-  const linkHref = anchor.attribute('href');
-  const linkText = anchor.textContent;
-  let newCard = primaryCardTemplate;
+  const cardAnchor = currentCard.querySelector('a');
+  const linkHref = cardAnchor.getAttribute('href');
+  const linkText = cardAnchor.textContent;
+//  let newCard = primaryCardTemplate;
   console.log (`href = ${linkHref} and text = ${linkText} `);
 }
 
@@ -33,7 +35,7 @@ export default function decorate(block) {
     // process card
     if (isTop) {
       // process top card
-      processTopCard (row);
+      processTopCard(row);
     } else {
       const li = document.createElement('li');
       li.className = 'nhsuk-grid-column-half nhsuk-card-group__item';
