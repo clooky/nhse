@@ -1,4 +1,4 @@
-import { createOptimizedPicture } from '../../scripts/aem.js';
+e import { createOptimizedPicture } from '../../scripts/aem.js';
 
 const topCardTemplate = `
   <div class="nhsuk-card nhsuk-card--clickable">
@@ -56,6 +56,10 @@ function processCard (currentCard, ctx) {
   const linkText = cardAnchor.textContent;
   if (ctx.isTop) {
     li = processTemplateCard (currentCard,topCardTemplate,linkHref,linkText);
+  } else if (ctx.isPrimary) {
+    li = processTemplateCard (currentCard,primaryCardTemplate,linkHref,linkText);
+  } else {
+    li = processTemplateCard (currentCard,secondaryCardTemplate,linkHref,linkText);
   }
   return li
 }
