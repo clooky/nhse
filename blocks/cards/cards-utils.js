@@ -53,7 +53,7 @@ function processCard(currentCard, ctx) {
   const linkText = cardAnchor?.textContent || '';
 
   // remove the node where the heading anchor was as we don't need this now
-  currentCard.children[0].querySelectorAll(':scope > *').forEach(child => {
+  currentCard.children[0].querySelectorAll(':scope > *').forEach((child) => {
     if (child.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a')) {
       child.remove();
     }
@@ -61,13 +61,13 @@ function processCard(currentCard, ctx) {
   const paragraphs = currentCard.querySelectorAll('p');
 
   if (ctx.isTop) {
-    li = processTemplateCard (topCardTemplate,linkHref,linkText,paragraphs);
+    li = processTemplateCard(topCardTemplate, linkHref, linkText, paragraphs);
   } else if (ctx.isPrimary) {
-    li = processTemplateCard (primaryCardTemplate,linkHref,linkText,paragraphs);
+    li = processTemplateCard(primaryCardTemplate, linkHref, linkText, paragraphs);
   } else {
-    li = processTemplateCard (secondaryCardTemplate,linkHref,linkText,paragraphs);
+    li = processTemplateCard(secondaryCardTemplate, linkHref, linkText, paragraphs);
   }
-  return li
+  return li;
 }
 
 export {processCard};
