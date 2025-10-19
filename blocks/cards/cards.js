@@ -6,14 +6,13 @@ export default function decorate(block) {
   ctx.isTop = block.classList.contains('top');
   ctx.isPrimary = block.classList.contains('primary');
   ctx.isSecondary = block.classList.contains('secondary');
-  console.log (JSON.stringify(ctx));
-  
+
   /* change to ul, li */
   const ul = document.createElement('ul');
   ul.className = 'nhsuk-grid-row nhsuk-card-group';
   [...block.children].forEach((row) => {
     // process card
-    const li = processCard(row,ctx);
+    const li = processCard(row, ctx);
     ul.append(li);
     // end of process card
   });
