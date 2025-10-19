@@ -27,8 +27,7 @@ const secondaryCardTemplate = `
     </div>
 `;
 
-
-function processTemplateCard (cardTemplate,href,linkText,paragraphs) {
+function processTemplateCard(cardTemplate, href, linkText, paragraphs) {
   const li = document.createElement('li');
   li.className = 'nhsuk-grid-column-one-third nhsuk-card-group__item';
   li.innerHTML = cardTemplate;
@@ -37,21 +36,22 @@ function processTemplateCard (cardTemplate,href,linkText,paragraphs) {
   const descriptionNode = li.querySelector('.nhsuk-card__description');
   if (descriptionNode) {
     if (paragraphs) {
-      paragraphs.forEach(paragraph => {
-        descriptionNode.parentElement.insertBefore(paragraph,descriptionNode);
+      paragraphs.forEach((paragraph) => {
+        paragraph.className = descriptionNode.className;
+        descriptionNode.parentElement.insertBefore(paragraph, descriptionNode);
       });
     }
     descriptionNode.remove();
   }
-  return li
+  return li;
 }
 
-function processCard (currentCard, ctx) {
+function processCard(currentCard, ctx) {
   let li = null;
   const cardAnchor = currentCard.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a');
   const linkHref = cardAnchor?.getAttribute('href') || '';
   const linkText = cardAnchor?.textContent || '';
-  
+
   // remove the node where the heading anchor was as we don't need this now
   currentCard.children[0].querySelectorAll(':scope > *').forEach(child => {
     if (child.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a')) {
@@ -59,7 +59,7 @@ function processCard (currentCard, ctx) {
     }
   });
   const paragraphs = currentCard.querySelectorAll('p');
-  
+
   if (ctx.isTop) {
     li = processTemplateCard (topCardTemplate,linkHref,linkText,paragraphs);
   } else if (ctx.isPrimary) {
