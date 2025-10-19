@@ -27,20 +27,18 @@ const makePagination = (pagination) => `
   `;
 
 export default async function decorate(block) {
-
-  const prevRow = block.children[0];
-  const nextRow = block.children[1];
-  
+  const prevRow = (block.children.length > 0) ? block.children[0] : null;
+  const nextRow = (block.children.length > 1) ? block.children[1] : null;
   const pagination = {
     prev : {
-      text: 'Previous',
-      title: 'Symptoms',
-      href: '#'
+      text: (prevRow.children.length > 0) ? prevRow.children[0].innerText : '';,
+      title: (prevRow.children.length > 1) ? prevRow.children[1].innerText : '';,
+      href: (prevRow.children.length > 1) ? prevRow.children[1].querySelector('a')?.href;
     },
     next : {
-      text: 'next',
-      title: 'Treatment',
-      href: '#'
+      text: (nextRow.children.length > 0) ? nextRow.children[0].innerText : '';,
+      title: (nextRow.children.length > 1) ? nextRow.children[1].innerText : '';,
+      href: (nextRow.children.length > 1) ? nextRow.children[1].querySelector('a')?.href;
     }
   };
   
