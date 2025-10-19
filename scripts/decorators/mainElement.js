@@ -26,6 +26,6 @@ function decorateMainElement(mainEl) {
   mainEl.parentNode.insertBefore(wrapper, mainEl);
   wrapper.appendChild(mainEl);
 
-  decorateDefaultElements(mainEL);
+  decorateDefaultElements(mainEl);
 }
 export default decorateMainElement;
