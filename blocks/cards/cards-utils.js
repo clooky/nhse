@@ -37,8 +37,8 @@ function processTemplateCard(cardTemplate, href, linkText, paragraphs) {
   const li = document.createElement('li');
   li.className = 'nhsuk-grid-column-one-third nhsuk-card-group__item';
   li.innerHTML = cardTemplate;
-//  li.querySelector('.nhsuk-card__link').href = href;
-//  li.querySelector('.nhsuk-card__link').innerHTML = linkText;
+  li.querySelector('.nhsuk-card__link').href = href;
+  li.querySelector('.nhsuk-card__link').innerHTML = linkText;
   const descriptionNode = li.querySelector('.nhsuk-card__description');
   if (descriptionNode) {
     if (paragraphs) {
