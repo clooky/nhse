@@ -53,7 +53,7 @@ function processCard (currentCard, ctx) {
   const linkText = cardAnchor?.textContent || '';
   
   // remove the node where the heading anchor was as we don't need this now
-  currentCard.querySelectorAll(':scope > *').forEach(child => {
+  currentCard.querySelectorAll('div > *').forEach(child => {
     if (child.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a')) {
       child.remove();
     }
