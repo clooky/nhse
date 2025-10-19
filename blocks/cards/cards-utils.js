@@ -46,7 +46,7 @@ function processTemplateCard(cardTemplate, href, linkText, paragraphs) {
   return li;
 }
 
-function processCard(currentCard, ctx) {
+export default function processCard(currentCard, ctx) {
   let li = null;
   const cardAnchor = currentCard.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a');
   const linkHref = cardAnchor?.getAttribute('href') || '';
@@ -69,5 +69,3 @@ function processCard(currentCard, ctx) {
   }
   return li;
 }
-
-export {processCard};
