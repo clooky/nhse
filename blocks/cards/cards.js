@@ -1,5 +1,5 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
-import { processCard } from './cards-utils.js';
+import processCard from './cards-utils.js';
 
 export default function decorate(block) {
   const ctx = {};
