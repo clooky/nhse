@@ -6,6 +6,6 @@ export default function decorate(block) {
   const linkText = cardAnchor?.textContent || '';
   block.textContent = '';
   block.innerHTML = backLinkTemplate;
-  block.querySelector('a').href = href;
+  block.querySelector('a').href = linkHref;
   block.querySelector('a').innerHTML = linkText;
 }
