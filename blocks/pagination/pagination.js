@@ -33,12 +33,12 @@ export default async function decorate(block) {
     prev : {
       text: (prevRow.children.length > 0) ? prevRow.children[0].innerText : '',
       title: (prevRow.children.length > 1) ? prevRow.children[1].innerText : '',
-      href: (prevRow.children.length > 1) ? prevRow.children[1].querySelector('a')?.href
+      href: '#'
     },
     next : {
       text: (nextRow.children.length > 0) ? nextRow.children[0].innerText : '',
       title: (nextRow.children.length > 1) ? nextRow.children[1].innerText : '',
-      href: (nextRow.children.length > 1) ? nextRow.children[1].querySelector('a')?.href
+      href: '#'
     }
   };
   
