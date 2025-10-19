@@ -1,28 +1,34 @@
 const topCardTemplate = `
-  <div class="nhsuk-card nhsuk-card--clickable">
-    <div class="nhsuk-card__content">
-      <h5 class="nhsuk-card__heading nhsuk-heading-xs"> <a class="nhsuk-card__link" href="[HREF]">[LINKTEXT]</a> </h5>
+  <div class='nhsuk-card nhsuk-card--clickable'>
+    <div class='nhsuk-card__content'>
+      <h5 class='nhsuk-card__heading nhsuk-heading-xs'>
+        <a class='nhsuk-card__link' href='[HREF]'>[LINKTEXT]</a>
+      </h5>
     </div>
   </div>
 `;
 
 const primaryCardTemplate = `
-    <div class="nhsuk-card nhsuk-card--clickable">
-      <div class="nhsuk-card__content nhsuk-card__content--primary">
-        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="[HREF]">[LINKTEXT]</a> </h2>
-        <p class="nhsuk-card__description">[CARDDESCRIPTION]</p>
-        <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
-          <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-.3 5.8a1 1 0 1 0-1.5 1.4l2.9 2.8-2.9 2.8a1 1 0 0 0 1.5 1.4l3.5-3.5c.4-.4.4-1 0-1.4Z" />
+    <div class='nhsuk-card nhsuk-card--clickable'>
+      <div class='nhsuk-card__content nhsuk-card__content--primary'>
+        <h2 class='nhsuk-card__heading nhsuk-heading-m'>
+          <a class='nhsuk-card__link' href='[HREF]'>[LINKTEXT]</a>
+        </h2>
+        <p class='nhsuk-card__description'>[CARDDESCRIPTION]</p>
+        <svg class='nhsuk-icon nhsuk-icon--chevron-right-circle' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16' focusable='false' aria-hidden='true'>
+          <path d='M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-.3 5.8a1 1 0 1 0-1.5 1.4l2.9 2.8-2.9 2.8a1 1 0 0 0 1.5 1.4l3.5-3.5c.4-.4.4-1 0-1.4Z' />
         </svg>
       </div>
     </div>
 `;
 
 const secondaryCardTemplate = `
-    <div class="nhsuk-card nhsuk-card--clickable nhsuk-card--secondary">
-      <div class="nhsuk-card__content nhsuk-card__content--secondary">
-        <h2 class="nhsuk-card__heading nhsuk-heading-m"> <a class="nhsuk-card__link" href="[HREF]">[LINKTEXT]</a> </h2>
-        <p class="nhsuk-card__description">[CARDDESCRIPTION]</p>
+    <div class='nhsuk-card nhsuk-card--clickable nhsuk-card--secondary'>
+      <div class='nhsuk-card__content nhsuk-card__content--secondary'>
+        <h2 class='nhsuk-card__heading nhsuk-heading-m'>
+          <a class='nhsuk-card__link' href='[HREF]'>[LINKTEXT]</a>
+        </h2>
+        <p class='nhsuk-card__description'>[CARDDESCRIPTION]</p>
       </div>
     </div>
 `;
