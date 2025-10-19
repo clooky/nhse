@@ -16,7 +16,7 @@ const makePagination = (pagination) => `
       <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="${pagination.next.href}">
         <span class="nhsuk-pagination__title">${pagination.next.text}</span>
         <span class="nhsuk-u-visually-hidden">:</span>
-        <span class="nhsuk-pagination__page">${pagination.prev.title}</span>
+        <span class="nhsuk-pagination__page">${pagination.next.title}</span>
         <svg class="nhsuk-icon nhsuk-icon--arrow-right" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
           <path d="m14.7 6.3 5 5c.2.2.3.4.3.7 0 .3-.1.5-.3.7l-5 5a1 1 0 0 1-1.4-1.4l3.3-3.3H5a1 1 0 0 1 0-2h11.6l-3.3-3.3a1 1 0 1 1 1.4-1.4Z" />
         </svg>
@@ -27,9 +27,13 @@ const makePagination = (pagination) => `
   `;
 
 export default async function decorate(block) {
+
+  const prevRow = block.children[0];
+  const nextRow = block.children[1];
+  
   const pagination = {
     prev : {
-      text: 'Previoussss',
+      text: 'Previous',
       title: 'Symptoms',
       href: '#'
     },
@@ -39,6 +43,7 @@ export default async function decorate(block) {
       href: '#'
     }
   };
+  
   const paginationBlock = makePagination(pagination);
   block.textContent = '';
   block.innerHTML = paginationBlock;
