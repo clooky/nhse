@@ -1,6 +1,6 @@
 export default function decorate(block) {
   const main = document.querySelector('main');
-  const headers = main?.querySelectorAll('h1 h2');
+  const headers = main?.querySelectorAll('h1, h2');
   const ol = document.createElement('ol');
   ol.className = 'nhs-toc';
   headers.forEach((header) => {
