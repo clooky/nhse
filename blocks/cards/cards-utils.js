@@ -38,7 +38,7 @@ function processTemplateCard (cardTemplate,href,linkText,paragraphs) {
   if (descriptionNode) {
     if (paragraphs) {
       paragraphs.forEach(paragraph => {
-        li.insertBefore(paragraph,descriptionNode);
+        descriptionNode.parent.insertBefore(paragraph,descriptionNode);
       });
     }
     descriptionNode.remove();
