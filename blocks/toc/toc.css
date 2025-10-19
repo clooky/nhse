@@ -1,1 +1,9 @@
-/* stylelint-disable no-empty-source */
+ol.nhs-toc {
+    background-color:#e6eaea;
+    padding:10px;
+}
+ol.nhs-toc li {
+    list-style-type: decimal;
+    list-style-position: outside;
+    margin-left: 1em;
+}
