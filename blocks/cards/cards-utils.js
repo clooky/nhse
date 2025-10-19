@@ -2,7 +2,7 @@ const topCardTemplate = `
   <div class='nhsuk-card nhsuk-card--clickable'>
     <div class='nhsuk-card__content'>
       <h5 class='nhsuk-card__heading nhsuk-heading-xs'>
-        <a class='nhsuk-card__link' href='[HREF]'>[LINKTEXT]</a>
+        <a class='nhsuk-card__link' href='${href}'>${linkText}</a>
       </h5>
     </div>
   </div>
@@ -12,7 +12,7 @@ const primaryCardTemplate = `
     <div class='nhsuk-card nhsuk-card--clickable'>
       <div class='nhsuk-card__content nhsuk-card__content--primary'>
         <h2 class='nhsuk-card__heading nhsuk-heading-m'>
-          <a class='nhsuk-card__link' href='[HREF]'>[LINKTEXT]</a>
+          <a class='nhsuk-card__link' href='${href}'>${linkText}</a>
         </h2>
         <p class='nhsuk-card__description'>[CARDDESCRIPTION]</p>
         <svg class='nhsuk-icon nhsuk-icon--chevron-right-circle' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='16' height='16' focusable='false' aria-hidden='true'>
@@ -26,7 +26,7 @@ const secondaryCardTemplate = `
     <div class='nhsuk-card nhsuk-card--clickable nhsuk-card--secondary'>
       <div class='nhsuk-card__content nhsuk-card__content--secondary'>
         <h2 class='nhsuk-card__heading nhsuk-heading-m'>
-          <a class='nhsuk-card__link' href='[HREF]'>[LINKTEXT]</a>
+          <a class='nhsuk-card__link' href='${href}'>${linkText}</a>
         </h2>
         <p class='nhsuk-card__description'>[CARDDESCRIPTION]</p>
       </div>
@@ -37,8 +37,8 @@ function processTemplateCard(cardTemplate, href, linkText, paragraphs) {
   const li = document.createElement('li');
   li.className = 'nhsuk-grid-column-one-third nhsuk-card-group__item';
   li.innerHTML = cardTemplate;
-  li.querySelector('.nhsuk-card__link').href = href;
-  li.querySelector('.nhsuk-card__link').innerHTML = linkText;
+//  li.querySelector('.nhsuk-card__link').href = href;
+//  li.querySelector('.nhsuk-card__link').innerHTML = linkText;
   const descriptionNode = li.querySelector('.nhsuk-card__description');
   if (descriptionNode) {
     if (paragraphs) {
