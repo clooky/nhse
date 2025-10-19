@@ -1,4 +1,4 @@
-const backLinkTemplate = `<a class="nhsuk-back-link" href="[HREF]">[LINKTEXT]</a>`;
+const backLinkTemplate = `<a class='nhsuk-back-link' href='[HREF]'>[LINKTEXT]</a>`;
 
 export default function decorate(block) {
   const cardAnchor = block.querySelector('a');
