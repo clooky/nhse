@@ -1,6 +1,7 @@
 const makePagination = (pagination) => `
 <nav class="nhsuk-pagination" role="navigation" aria-label="Pagination">
   <ul class="nhsuk-list nhsuk-pagination__list">
+    ${if (pagination.prev.text) {
     <li class="nhsuk-pagination-item--previous">
       <a class="nhsuk-pagination__link nhsuk-pagination__link--prev" href="${pagination.prev.href}">
         <span class="nhsuk-pagination__title">${pagination.prev.text}</span>
@@ -12,6 +13,8 @@ const makePagination = (pagination) => `
 
       </a>
     </li>
+    }
+    ${if (pagination.next.text) {
     <li class="nhsuk-pagination-item--next">
       <a class="nhsuk-pagination__link nhsuk-pagination__link--next" href="${pagination.next.href}">
         <span class="nhsuk-pagination__title">${pagination.next.text}</span>
@@ -22,6 +25,7 @@ const makePagination = (pagination) => `
         </svg>
       </a>
     </li>
+    }
   </ul>
 </nav>
   `;
