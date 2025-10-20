@@ -33,18 +33,18 @@ export default async function decorate(block) {
   const prevRow = (block.children.length > 0) ? block.children[0] : null;
   const nextRow = (block.children.length > 1) ? block.children[1] : null;
   const pagination = {
-    prev : {
+    prev: {
       text: (prevRow.children.length > 0) ? prevRow.children[0].innerText : '',
       title: (prevRow.children.length > 1) ? prevRow.children[1].innerText : '',
-      href: '#'
+      href: '#',
     },
-    next : {
+    next: {
       text: (nextRow.children.length > 0) ? nextRow.children[0].innerText : '',
       title: (nextRow.children.length > 1) ? nextRow.children[1].innerText : '',
-      href: '#'
+      href: '#',
     }
   };
-  
+
   const paginationBlock = makePagination(pagination);
   block.textContent = '';
   block.innerHTML = paginationBlock;
