@@ -1,4 +1,3 @@
-
 const makeBanner = (title, html) => `
 <div class="nhsuk-notification-banner" role="region" aria-labelledby="nhsuk-notification-banner-title" data-module="nhsuk-notification-banner">
   <div class="nhsuk-notification-banner__header">

@@ -1,4 +1,3 @@
-
 const makeDetails = (title, html) => `
 <details class="nhsuk-details">
   <summary class="nhsuk-details__summary">
