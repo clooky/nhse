@@ -7,7 +7,7 @@ function decorateDefaultElements(mainEL) {
   const defaultElements = mainEL.querySelectorAll('h1,h2,h3,h4,h5,h6,ul,ol,li,p');
   defaultElements.forEach((defaultElement) => {
     const tagName = defaultElement.localName;
-    if (tagName === 'ul') {
+    if (tagName === 'ulREMOVED') {
       defaultElement.className = 'nhsuk-list';
     }
   });
