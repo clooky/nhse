@@ -5,13 +5,13 @@ export default async function decorate(block) {
     ol.className = 'nhsuk-contents-list__list';
 
     const li = (tocDiv) ? tocDiv.querySelectorAll('li') : null;
-    li.forEach(element => {
-      element.className ='nhsuk-contents-list__item';
+    li.forEach((element) => {
+      element.className = 'nhsuk-contents-list__item';
     });
 
-    const li_a = (tocDiv) ? tocDiv.querySelectorAll('li a') : null;
-    li_a.forEach(element => {
-      element.className ='nhsuk-contents-list__link';
+    const listAnchors = (tocDiv) ? tocDiv.querySelectorAll('li a') : null;
+    listAnchors.forEach((element) => {
+      element.className = 'nhsuk-contents-list__link';
     });
 
     const nav = document.createElement('nav');
