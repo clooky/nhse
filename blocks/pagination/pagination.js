@@ -28,8 +28,36 @@ const makePagination = (pagination) => `
   </ul>
 </nav>
   `;
+function getRow(block, index) {
+  return block?.children?.[index] ?? null;
+}
+
+function getColumnText(row, colIndex) {
+  return row?.children?.[colIndex]?.innerText ?? '';
+}
+
+function getColumnHref(row, colIndex) {
+  const link = row?.children?.[colIndex]?.querySelector('a');
+  return link?.href ?? '';
+}
 
 export default async function decorate(block) {
+  const prevRow = getRow(block, 0);
+  const nextRow = getRow(block, 1);
+
+  const pagination = {
+    prev: {
+      text: getColumnText(prevRow, 0),
+      title: getColumnText(prevRow, 1),
+      href: getColumnHref(prevRow, 1),
+    },
+    next: {
+      text: getColumnText(nextRow, 0),
+      title: getColumnText(nextRow, 1),
+      href: getColumnHref(nextRow, 1),
+    },
+  };
+/*
   const prevRow = (block.children.length > 0) ? block.children[0] : null;
   const nextRow = (block.children.length > 1) ? block.children[1] : null;
   const pagination = {
@@ -44,7 +72,7 @@ export default async function decorate(block) {
       href: (nextRow.children.length > 1) ? (nextRow.children[1].querySelector('a') ? nextRow.children[1].querySelector('a').href : '' ) : '',
     },
   };
-
+*/
   const paginationBlock = makePagination(pagination);
   block.textContent = '';
   block.innerHTML = paginationBlock;
