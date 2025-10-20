@@ -1,4 +1,3 @@
-
 const makeExpander = (title, html) => `
 <details class="nhsuk-details nhsuk-expander">
   <summary class="nhsuk-details__summary">
