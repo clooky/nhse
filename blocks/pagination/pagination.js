@@ -42,7 +42,7 @@ export default async function decorate(block) {
       text: (nextRow.children.length > 0) ? nextRow.children[0].innerText : '',
       title: (nextRow.children.length > 1) ? nextRow.children[1].innerText : '',
       href: '#',
-    }
+    },
   };
 
   const paginationBlock = makePagination(pagination);
