@@ -1,6 +1,14 @@
+function getLevelClass (classList) {
+  if (classList.contains('emergency')) {
+    return 'nhsuk-card--care--emergency';
+  } else if (classList.contains('urgent')) {
+    return 'nhsuk-card--care--urgent';
+  } else {
+    return 'nhsuk-card--care--non-urgent'; 
+  }
+}
 export default function decorate(block) {
-  const isEmergency = block.classList.contains('emergency');
-  const cardClass = isEmergency ? 'nhsuk-card--care--emergency' : 'nhsuk-card--care--non-urgent';
+  const cardClass = getLevelClass(block.classList);
   const headerText = block.querySelector('h1').textContent.trim();
   const bodyHTML = block.cloneNode(true);
   bodyHTML.querySelector('h1').remove();
