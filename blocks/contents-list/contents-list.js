@@ -1,4 +1,5 @@
 export default async function decorate(block) {
+  const currentPage = window.location.href;
   const tocDiv = (block.children.length > 0) ? block.children[0] : null;
   const ol = (tocDiv) ? tocDiv.querySelector('ol') : null;
   if (ol) {
@@ -11,7 +12,15 @@ export default async function decorate(block) {
 
     const listAnchors = (tocDiv) ? tocDiv.querySelectorAll('li a') : null;
     listAnchors.forEach((element) => {
-      element.className = 'nhsuk-contents-list__link';
+      if (element.href === currentPage) {
+        const span = document.createElement('span');
+        span.className = 'nhsuk-contents-list__link nhsuk-contents-list__current';
+        span.innerHTML = element.innerHTML;
+        element.parentElement.insertBefore(span,element);
+        element.remove();
+      } else {
+        element.className = 'nhsuk-contents-list__link ';
+      }
     });
 
     const nav = document.createElement('nav');
