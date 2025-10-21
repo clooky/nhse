@@ -53,7 +53,7 @@ export default function processCard(currentCard, ctx) {
   const cardPicture = currentCard.querySelector('img');
   currentCard.querySelector('picture')?.remove(); // Tech Debt remove all pictures
   const paragraphs = currentCard.querySelectorAll('p');
-  const paragraphHTML = Array.from(paragraphs).map(p => p.innerHTML).join('');
+  const paragraphHTML = Array.from(paragraphs).map((p) => p.innerHTML).join('');
 
   if (cardPicture) {
     card = makePictureCard(linkHref, linkText, paragraphHTML, cardPicture.src);
