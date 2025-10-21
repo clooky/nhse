@@ -1,0 +1,12 @@
+.review-data dl div {
+  display: flex;
+  gap: 0.5rem; /* space between dt and dd */
+}
+
+dt {
+  margin: 0;
+}
+
+dd {
+  margin: 0;
+}

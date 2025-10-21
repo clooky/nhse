@@ -1,5 +1,5 @@
 import { createOptimizedPicture } from '../../scripts/aem.js';
-import processCard from './cards-utils.js';
+import processCard from './cards-utilsv2.js';
 
 export default function decorate(block) {
   const ctx = {};
@@ -16,7 +16,7 @@ export default function decorate(block) {
     ul.append(li);
     // end of process card
   });
-  ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
+//  ul.querySelectorAll('picture > img').forEach((img) => img.closest('picture').replaceWith(createOptimizedPicture(img.src, img.alt, false, [{ width: '750' }])));
   block.textContent = '';
   block.append(ul);
 }
