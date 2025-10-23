@@ -80,7 +80,8 @@ export default function processCard(currentCard, ctx) {
     card = makeSecondaryCard(linkHref, linkText, paragraphHTML);
   }
   const li = document.createElement('li');
-  li.className = listClassWidth + ' nhsuk-card-group__item';
+  li.className = 'nhsuk-card-group__item';
+  li.classList.add(listClassWidth );
   li.innerHTML = card;
   return li;
 }

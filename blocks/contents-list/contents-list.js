@@ -16,7 +16,7 @@ export default async function decorate(block) {
         const span = document.createElement('span');
         span.className = 'nhsuk-contents-list__link nhsuk-contents-list__current';
         span.innerHTML = element.innerHTML;
-        element.parentElement.insertBefore(span,element);
+        element.parentElement.insertBefore(span, element);
         element.remove();
       } else {
         element.className = 'nhsuk-contents-list__link ';
