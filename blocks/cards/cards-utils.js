@@ -81,7 +81,7 @@ export default function processCard(currentCard, ctx) {
   }
   const li = document.createElement('li');
   li.className = 'nhsuk-card-group__item';
-  li.classList.add(listClassWidth );
+  li.classList.add(listClassWidth);
   li.innerHTML = card;
   return li;
 }
