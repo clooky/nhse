@@ -44,9 +44,18 @@ const makePictureCard = (href, linkText, description, pictureSrc) => `
     </div>
   </div>
 `;
+const makeNumberCard = (href, linkText, title) => `
+    <div class="nhsuk-card nhsuk-card--clickable">
+      <div class="nhsuk-card__content">
+        <p class="nhsuk-heading-xl nhsuk-u-font-size-64 nhsuk-u-margin-bottom-1">${title}<span class="nhsuk-u-visually-hidden">${linkText}</span></p>
+        <a href='${href}' class="nhsuk-card__link nhsuk-u-font-weight-normal nhsuk-u-font-size-19 nhsuk-link--no-visited-state">${linkText}</a>
+      </div>
+    </div>
+`;
 
 export default function processCard(currentCard, ctx) {
   let card = null;
+  let listClassWidth = 'nhsuk-grid-column-one-third';
   const cardAnchor = currentCard.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a');
   const linkHref = cardAnchor?.getAttribute('href') || '';
   const linkText = cardAnchor?.textContent || '';
@@ -61,11 +70,17 @@ export default function processCard(currentCard, ctx) {
     card = makeTopCard(linkHref, linkText, paragraphHTML);
   } else if (ctx.isPrimary) {
     card = makePrimaryCard(linkHref, linkText, paragraphHTML);
+  } else if (ctx.isNumber) {
+    const title = currentCard.querySelector('h1, h2, h3, h4, h5, h6')?.innerText;
+    const numberLink = currentCard.querySelector('a')?.href;
+    const numberLinkText = currentCard.querySelector('a')?.innerText;
+    card = makeNumberCard(numberLink, numberLinkText, title);
+    listClassWidth = 'nhsuk-grid-column-one-quarter';
   } else {
     card = makeSecondaryCard(linkHref, linkText, paragraphHTML);
   }
   const li = document.createElement('li');
-  li.className = 'nhsuk-grid-column-one-third nhsuk-card-group__item';
+  li.className = listClassWidth + ' nhsuk-card-group__item';
   li.innerHTML = card;
   return li;
 }
