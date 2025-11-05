@@ -1,55 +1,49 @@
-// import { getMetadata } from '../../scripts/aem.js';
-// import { loadFragment } from '../fragment/fragment.js';
+import { getMetadata } from '../../scripts/aem.js';
+import { loadFragment } from '../fragment/fragment.js';
 
 /**
  * loads and decorates the footer
  * @param {Element} block The footer block element
  */
-/*
 export default async function decorate(block) {
   // load footer as fragment
   const footerMeta = getMetadata('footer');
   const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
   const fragment = await loadFragment(footerPath);
+  block.parentElement.className='nhsuk-footer';
+  
+  const uls = fragment.querySelectorAll('ul');
+  const ulCount = uls.length;
+  const ulCSSWidth = 'nhsuk-grid-column-one-quarter';
+  console.log (ulCount);
 
+  const gridDiv = document.createElement('div');
+  gridDiv.className = 'nhsuk-footer__navigation nhsuk-grid-row';
+
+  uls.forEach((ul) => {
+    const div = document.createElement('div');
+    div.className = ulCSSWidth;
+    gridDiv.appendChild(div);
+//    ul.parentElement.insertBefore(div,ul);
+    ul.className = 'nhsuk-footer__list';
+    const anchors = ul.querySelectorAll('a');
+    anchors.forEach((anchor) => {
+      anchor.className = 'nhsuk-footer__list-item-link';
+      anchor.parentElement.className = 'nhsuk-footer__list-item';
+    });
+    div.appendChild(ul);
+  });
+
+  fragment.querySelectorAll('p').forEach((p) => {
+    p.className = 'nhsuk-body-s';
+  })
   // decorate footer DOM
   block.textContent = '';
   const footer = document.createElement('div');
+  footer.className = 'nhsuk-width-container';
+  footer.appendChild(gridDiv);
+
   while (fragment.firstElementChild) footer.append(fragment.firstElementChild);
 
   block.append(footer);
-}
-*/
-
-export default async function decorate(block) {
-  const footerHTML = `
-  <footer class="nhsuk-footer" role="contentinfo">
-    <div class="nhsuk-width-container">
-      <div class="nhsuk-footer__meta">
-        <h2 class="nhsuk-u-visually-hidden">Support links</h2>
-        <ul class="nhsuk-footer__list">
-          <li class="nhsuk-footer__list-item">
-            <a class="nhsuk-footer__list-item-link" href="#">Accessibility statement</a>
-          </li>
-          <li class="nhsuk-footer__list-item">
-            <a class="nhsuk-footer__list-item-link" href="#">Contact us</a>
-          </li>
-          <li class="nhsuk-footer__list-item">
-            <a class="nhsuk-footer__list-item-link" href="#">Cookies</a>
-          </li>
-          <li class="nhsuk-footer__list-item">
-            <a class="nhsuk-footer__list-item-link" href="#">Privacy policy</a>
-          </li>
-          <li class="nhsuk-footer__list-item">
-            <a class="nhsuk-footer__list-item-link" href="#">Terms and conditions</a>
-          </li>
-        </ul>
-  
-        <p class="nhsuk-body-s">© NHS England</p>
-      </div>
-    </div>
-  </footer>
-  `;
-  block.textContent = '';
-  block.innerHTML = footerHTML;
 }
