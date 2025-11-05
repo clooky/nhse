@@ -13,7 +13,7 @@ export default async function decorate(block) {
   block.parentElement.className = 'nhsuk-footer';
 
   const uls = fragment.querySelectorAll('ul');
-  const ulCount = uls.length;
+  // const ulCount = uls.length;
   const ulCSSWidth = 'nhsuk-grid-column-one-quarter';
 
   const gridDiv = document.createElement('div');

@@ -64,5 +64,4 @@ export default async function decorate(block) {
   navDiv.append(ul);
   block.parentElement.append(div.firstChild);
   block.parentElement.append(nav);
-
 }
