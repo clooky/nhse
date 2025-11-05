@@ -1,5 +1,6 @@
 import { getMetadata } from '../../scripts/aem.js';
 import { loadFragment } from '../fragment/fragment.js';
+
 const moreLink = `
         <li class="nhsuk-header__menu" hidden>
           <button class="nhsuk-header__menu-toggle nhsuk-header__navigation-link" id="toggle-menu" aria-expanded="false">
@@ -32,13 +33,14 @@ const makeLogo = (title) => `
       </form>
     </search>
   </div>
-  `;
+`;
+
 export default async function decorate(block) {
   const navMeta = getMetadata('nav');
   const navPath = navMeta ? new URL(navMeta, window.location).pathname : '/nav';
   const fragment = await loadFragment(navPath);
   const title = fragment.querySelector('h1').innerText;
-  block.parentElement.className='nhsuk-header';
+  block.parentElement.className = 'nhsuk-header';
 
   const logoBlock = makeLogo(title);
   const div = document.createElement('div');
@@ -62,6 +64,5 @@ export default async function decorate(block) {
   navDiv.append(ul);
   block.parentElement.append(div.firstChild);
   block.parentElement.append(nav);
-
 
 }

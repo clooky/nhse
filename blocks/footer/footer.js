@@ -10,12 +10,11 @@ export default async function decorate(block) {
   const footerMeta = getMetadata('footer');
   const footerPath = footerMeta ? new URL(footerMeta, window.location).pathname : '/footer';
   const fragment = await loadFragment(footerPath);
-  block.parentElement.className='nhsuk-footer';
-  
+  block.parentElement.className = 'nhsuk-footer';
+
   const uls = fragment.querySelectorAll('ul');
   const ulCount = uls.length;
   const ulCSSWidth = 'nhsuk-grid-column-one-quarter';
-  console.log (ulCount);
 
   const gridDiv = document.createElement('div');
   gridDiv.className = 'nhsuk-footer__navigation nhsuk-grid-row';
@@ -24,7 +23,6 @@ export default async function decorate(block) {
     const div = document.createElement('div');
     div.className = ulCSSWidth;
     gridDiv.appendChild(div);
-//    ul.parentElement.insertBefore(div,ul);
     ul.className = 'nhsuk-footer__list';
     const anchors = ul.querySelectorAll('a');
     anchors.forEach((anchor) => {
@@ -36,7 +34,7 @@ export default async function decorate(block) {
 
   fragment.querySelectorAll('p').forEach((p) => {
     p.className = 'nhsuk-body-s';
-  })
+  });
   // decorate footer DOM
   block.textContent = '';
   const footer = document.createElement('div');
