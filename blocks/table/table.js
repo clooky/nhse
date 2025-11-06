@@ -1,6 +1,6 @@
 function buildCell(rowIndex) {
   const cell = rowIndex ? document.createElement('td') : document.createElement('th');
-  if (!rowIndex) { 
+  if (!rowIndex) {
     cell.className = 'nhsuk-table__header';
     cell.setAttribute('scope', 'col');
     cell.setAttribute('role', 'columnheader');
@@ -19,7 +19,7 @@ export default function decorate(block) {
   thead.className = 'nhsuk-table__head';
   tbody.className = 'nhsuk-table__body';
 
-  const hasCaption = (block.children.length > 0) ? (block.children[0].children.length == 1) : flase;
+  const hasCaption = (block.children.length > 0) ? (block.children[0].children.length === 1) : false;
   if (hasCaption) {
     const caption = document.createElement('caption');
     caption.className = 'nhsuk-table__caption';
@@ -40,7 +40,7 @@ export default function decorate(block) {
     [...child.children].forEach((col) => {
       const cell = buildCell(header ? i : i + 1);
       const align = col.getAttribute('data-align');
-      if (align == 'right') cell.classList.add('nhsuk-table__cell--numeric');
+      if (align === 'right') cell.classList.add('nhsuk-table__cell--numeric');
       cell.innerHTML = col.innerText;
       row.append(cell);
     });
