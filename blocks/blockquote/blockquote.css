@@ -1,0 +1,59 @@
+/* ==========================================================================
+   NHS-Style Semantic Quote Component
+   ========================================================================== */
+
+/* The outer container layout wrapper */
+.nhsuk-quote {
+  margin: 0 0 32px 0; /* Standard 32px bottom margin to match paragraph rhythm */
+  padding: 24px;
+  background-color: #f0f4f5; /* NHS Light Grey/Blue tint background */
+  border-left: 8px solid #005ea5; /* NHS Blue accent border for punchy visual grounding */
+}
+
+/* The actual blockquote element containing text strings */
+.nhsuk-quote__blockquote {
+  margin: 0;
+  padding: 0;
+}
+
+/* Target the typography within the quote */
+.nhsuk-quote__blockquote .nhsuk-body-m,
+.nhsuk-quote__blockquote p {
+  font-size: 19px; /* Core body size for desktop viewports */
+  line-height: 1.45;
+  margin-bottom: 16px; /* Space out the quote content from the author details */
+  color: #212b32; /* Rich dark grey body text colour */
+}
+
+/* The caption container holding the metadata */
+.nhsuk-quote__caption {
+  display: block;
+}
+
+/* The author block typography */
+.nhsuk-quote__author {
+  display: block; /* Forces name to its own line without relying on <br> tags */
+  font-size: 16px;
+  line-height: 1.5;
+  color: #212b32;
+}
+
+/* Secondary metadata line styling */
+.nhsuk-quote__metadata {
+  display: block;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #4c4c4c; /* Subtle NHS secondary text colour */
+}
+
+/* Responsive adjustments for mobile viewports */
+@media (max-width: 640px) {
+  .nhsuk-quote {
+    padding: 16px;
+    margin-bottom: 24px;
+  }
+  .nhsuk-quote__blockquote .nhsuk-body-m,
+  .nhsuk-quote__blockquote p {
+    font-size: 16px;
+  }
+}
