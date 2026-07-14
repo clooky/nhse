@@ -1,13 +1,13 @@
 const makeBlockquote = (author, role, html) => `
-<figure class="govuk-quote">
-  <blockquote class="govuk-quote__blockquote" cite="https://example.com">
-    <p class="govuk-body-m">
+<figure class="nhsuk-quote">
+  <blockquote class="nhsuk-quote__blockquote" cite="https://example.com">
+    <p class="nhsuk-body-m">
      ${html} 
    </p>
   </blockquote>
-  <figcaption class="govuk-quote__caption">
-    <span class="govuk-quote__author govuk-!-font-weight-bold"> ${author}</span>
-    <span class="govuk-quote__metadata govuk-hint govuk-body-s"> ${role}</span>
+  <figcaption class="nhsuk-quote__caption">
+    <span class="nhsuk-quote__author nhsuk-!-font-weight-bold"> ${author}</span>
+    <span class="nhsuk-quote__metadata nhsuk-hint nhsuk-body-s"> ${role}</span>
   </figcaption>
 </figure>
 `;
