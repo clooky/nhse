@@ -10,18 +10,6 @@ const makeBlockquote = (author, role, html) => `
     <span class="govuk-quote__metadata govuk-hint govuk-body-s"> ${role}</span>
   </figcaption>
 </figure>
-
-
-<details class="nhsuk-details nhsuk-expander">
-  <summary class="nhsuk-details__summary">
-    <span class="nhsuk-details__summary-text">
-      ${title} 
-    </span>
-  </summary>
-  <div class="nhsuk-details__text">
-    ${html}
-  </div>
-</details>
 `;
 
 export default async function decorate(block) {
