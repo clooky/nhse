@@ -1,58 +1,71 @@
 /* ==========================================================================
-   NHS-Style Semantic Quote Component
+   NHS-Style Semantic Quote Component with SVG Icon
    ========================================================================== */
 
-/* The outer container layout wrapper */
 .nhsuk-quote {
-  margin: 0 0 32px 0; /* Standard 32px bottom margin to match paragraph rhythm */
-  padding: 24px;
-  background-color: #f0f4f5; /* NHS Light Grey/Blue tint background */
-  border-left: 8px solid #005ea5; /* NHS Blue accent border for punchy visual grounding */
+  position: relative; /* Anchor point for the decorative icon */
+  margin: 0 0 32px 0;
+  padding: 32px 32px 24px 32px; /* Generous top padding for icon clearance */
+  background-color: #f0f4f5;
+  border-left: 8px solid #005ea5;
 }
 
-/* The actual blockquote element containing text strings */
+/* Position and style the decorative SVG element */
+.nhsuk-quote__icon {
+  position: absolute;
+  top: 16px;
+  left: 24px;
+  width: 40px;
+  height: 40px;
+  fill: #d8dde0; /* Soft grey tint so it stays behind the text visual layer */
+}
+
 .nhsuk-quote__blockquote {
+  position: relative;
+  z-index: 2; /* Keeps text stacked safely above the background icon if they overlap */
   margin: 0;
   padding: 0;
 }
 
-/* Target the typography within the quote */
-.nhsuk-quote__blockquote .nhsuk-body-m,
 .nhsuk-quote__blockquote p {
-  font-size: 19px; /* Core body size for desktop viewports */
+  font-size: 19px;
   line-height: 1.45;
-  margin-bottom: 16px; /* Space out the quote content from the author details */
-  color: #212b32; /* Rich dark grey body text colour */
+  margin-bottom: 16px;
+  color: #212b32;
 }
 
-/* The caption container holding the metadata */
 .nhsuk-quote__caption {
   display: block;
+  position: relative;
+  z-index: 2;
 }
 
-/* The author block typography */
 .nhsuk-quote__author {
-  display: block; /* Forces name to its own line without relying on <br> tags */
+  display: block;
   font-size: 16px;
   line-height: 1.5;
   color: #212b32;
 }
 
-/* Secondary metadata line styling */
 .nhsuk-quote__metadata {
   display: block;
   font-size: 16px;
   line-height: 1.5;
-  color: #4c4c4c; /* Subtle NHS secondary text colour */
+  color: #4c4c4c;
 }
 
-/* Responsive adjustments for mobile viewports */
+/* Mobile responsive scaling overrides */
 @media (max-width: 640px) {
   .nhsuk-quote {
-    padding: 16px;
+    padding: 24px 16px 16px 16px;
     margin-bottom: 24px;
   }
-  .nhsuk-quote__blockquote .nhsuk-body-m,
+  .nhsuk-quote__icon {
+    top: 8px;
+    left: 12px;
+    width: 28px;
+    height: 28px;
+  }
   .nhsuk-quote__blockquote p {
     font-size: 16px;
   }
