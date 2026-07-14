@@ -29,7 +29,7 @@ export default async function decorate(block) {
   const author = (block.children.length > 1) ? block.children[1].innerText : '';
   const role = (block.children.length > 2) ? block.children[2].innerText : '';
 
-  const blockquoteBlock = makeExpander(author, role, html);
+  const blockquoteBlock = makeBlockquote(author, role, html);
   block.textContent = '';
   block.innerHTML = blockquoteBlock;
 }
