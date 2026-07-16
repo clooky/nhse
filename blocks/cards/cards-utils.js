@@ -57,6 +57,7 @@ export default function processCard(currentCard, ctx) {
   let card = null;
   let listClassWidth = 'nhsuk-grid-column-one-third';
   if (ctx.isHalf) listClassWidth = 'nhsuk-grid-column-one-half';
+  console.log(JSON.stringify(ctx));
   const cardAnchor = currentCard.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a');
   const linkHref = cardAnchor?.getAttribute('href') || '';
   const linkText = cardAnchor?.textContent || '';
