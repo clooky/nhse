@@ -63,7 +63,6 @@ export default function processCard(currentCard, ctx) {
   let clickableClass = '';
   if (ctx.clickable) clickableClass = 'nhsuk-card--clickable';
 
-
   const cardAnchor = currentCard.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a');
   const linkHref = cardAnchor?.getAttribute('href') || '';
   const linkText = cardAnchor?.textContent || '';
