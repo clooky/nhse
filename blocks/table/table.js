@@ -19,10 +19,9 @@ export default function decorate(block) {
   thead.className = 'nhsuk-table__head';
   tbody.className = 'nhsuk-table__body';
 
-  const hasCaption =
-  block.children.length > 0 &&
-  block.children[0].children.length === 1;
-  
+  const hasCaption = block.children.length > 0
+  && block.children[0].children.length === 1;
+
   if (hasCaption) {
     const caption = document.createElement('caption');
     caption.className = 'nhsuk-table__caption';
