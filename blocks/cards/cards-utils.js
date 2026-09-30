@@ -8,8 +8,8 @@ const makeTopCard = (href, linkText) => `
   </div>
 `;
 
-const makePrimaryCard = (href, linkText, description) => `
-  <div class='nhsuk-card nhsuk-card--clickable'>
+const makePrimaryCard = (href, linkText, clickableClass, description) => `
+  <div class='nhsuk-card ${clickableClass}'>
     <div class='nhsuk-card__content nhsuk-card__content--primary'>
       <h2 class='nhsuk-card__heading nhsuk-heading-m'>
         <a class="nhsuk-card__link" href='${href}'>${linkText}</a>
@@ -58,6 +58,9 @@ export default function processCard(currentCard, ctx) {
   let listClassWidth = 'nhsuk-grid-column-one-third';
   if (ctx.isHalf) listClassWidth = 'nhsuk-grid-column-one-half';
   if (ctx.isFull) listClassWidth = 'nhsuk-grid-column-full';
+  let clickableClass = '';
+  if (ctx.clickable) clickableClass = 'nhsuk-card--clickable';
+
 
   const cardAnchor = currentCard.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a');
   const linkHref = cardAnchor?.getAttribute('href') || '';
@@ -72,7 +75,7 @@ export default function processCard(currentCard, ctx) {
   } else if (ctx.isTop) {
     card = makeTopCard(linkHref, linkText, paragraphHTML);
   } else if (ctx.isPrimary) {
-    card = makePrimaryCard(linkHref, linkText, paragraphHTML);
+    card = makePrimaryCard(linkHref, linkText, clickableClass, paragraphHTML);
   } else if (ctx.isNumber) {
     const title = currentCard.querySelector('h1, h2, h3, h4, h5, h6')?.innerText;
     const numberLink = currentCard.querySelector('a')?.href;
