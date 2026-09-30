@@ -61,7 +61,7 @@ export default function processCard(currentCard, ctx) {
   if (ctx.isHalf) listClassWidth = 'nhsuk-grid-column-one-half';
   if (ctx.isFull) listClassWidth = 'nhsuk-grid-column-full';
   let clickableClass = '';
-  if (ctx.clickable) clickableClass = 'nhsuk-card--clickable';
+  if (ctx.isClickable) clickableClass = 'nhsuk-card--clickable';
 
   const cardAnchor = currentCard.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a');
   const linkHref = cardAnchor?.getAttribute('href') || '';
