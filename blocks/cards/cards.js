@@ -7,6 +7,8 @@ export default function decorate(block) {
   ctx.isSecondary = block.classList.contains('secondary');
   ctx.isNumber = block.classList.contains('number');
   ctx.isHalf = block.classList.contains('half');
+  ctx.isFull = block.classList.contains('full');
+  ctx.isClickable = block.classList.contains('clickable');
 
   /* change to ul, li */
   const ul = document.createElement('ul');
