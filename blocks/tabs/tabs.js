@@ -33,6 +33,7 @@ export default async function decorate(block) {
     tablinkitemlink.href = `#${id}`;
     tablinkitem.append(tablinkitemlink);
     tablist.append(tablinkitem);
+    tablinkitemlink.innerHTML = tab.innerHTML;
     
     // build tab button
     const button = document.createElement('button');
