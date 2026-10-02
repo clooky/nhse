@@ -38,7 +38,7 @@ export default async function decorate(block) {
     tablinkitem.append(tablinkitemlink);
     tablist.append(tablinkitem);
     tablinkitemlink.innerHTML = tab.innerHTML;
-  
+
     // build tab button
     tab.remove();
   });
