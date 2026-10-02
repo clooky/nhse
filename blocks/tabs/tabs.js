@@ -7,6 +7,11 @@ export default async function decorate(block) {
   tablist.className = 'tabs-list nhsuk-tabs';
   tablist.setAttribute('role', 'tablist');
   tablist.setAttribute('data-module', 'nhsuk-tabs');
+  const tablistheading = document.createElement('h2');
+  tablistheading.className = 'nhsuk-tabs__heading';
+  tablistheading.innerText = 'Contents';
+  tablist.append(tablistheading);
+
   const tablistlinks = document.createElement('ul');
   tablistlinks.className = 'nhsuk-tabs__list';
   tablist.append(tablistlinks);
@@ -33,7 +38,7 @@ export default async function decorate(block) {
     tablinkitem.append(tablinkitemlink);
     tablist.append(tablinkitem);
     tablinkitemlink.innerHTML = tab.innerHTML;
-    
+  
     // build tab button
     tab.remove();
   });
