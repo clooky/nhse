@@ -291,6 +291,8 @@ export default async function decorate(block) {
     </table>
   </div>
 </div>`;
+  const dsDiv = document.createElement('div');
+  block.append(dsDiv);
   block.prepend(tablist);
-  block.append(dsTabs);
+  dsDiv.innerHTML = dsTabs;
 }
