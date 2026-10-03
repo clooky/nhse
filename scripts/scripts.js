@@ -109,9 +109,9 @@ async function loadLazy(doc) {
 
   // 2. Load your custom prebuilt minified JavaScript file
   try {
-    await import('./nhsuk-frontend-10/nhsuk-frontend-10.6.1.js');
+    await import('./nhsuk-frontend-10/nhsuk-frontend-10.6.1.min.js');
   } catch (error) {
-    console.error('Failed to load nhsuk-frontend-10.6.1.js:', error);
+    console.error('Failed to load nhsuk-frontend-10.6.1.min.js:', error);
   }
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
