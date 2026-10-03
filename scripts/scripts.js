@@ -107,6 +107,13 @@ async function loadLazy(doc) {
   loadHeader(doc.querySelector('header'));
   loadFooter(doc.querySelector('footer'));
 
+  // 2. Load your custom prebuilt minified JavaScript file
+  try {
+    await import('./nhsuk-frontend-10/nhsuk-frontend-10.6.1.js');
+  } catch (error) {
+    console.error('Failed to load nhsuk-frontend-10.6.1.js:', error);
+  }
+
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
 }
