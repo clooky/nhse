@@ -26,9 +26,10 @@ export default async function decorate(block) {
     tabpanel.className = 'nhsuk-tabs__panel';
     tabpanel.id = `${id}`;
     tabpanel.setAttribute('aria-hidden', !!i);
-    tabpanel.setAttribute('aria-labelledby', `tab-${id}`);
+    tabpanel.setAttribute('aria-labelledby', `${id}`);
     tabpanel.setAttribute('role', 'tabpanel');
-    tablist.append(tabpanel);
+    const newTab = tabpanel.cloneNode(true);
+    tablist.append(newTab);
 
     // build tab links
     const tablinkitem = document.createElement('li');
