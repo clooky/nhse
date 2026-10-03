@@ -74,6 +74,7 @@ export function decorateMain(main) {
  */
 async function loadEager(doc) {
   document.documentElement.lang = 'en';
+  doc.body.classList.add('js-enabled', 'nhsuk-frontend-supported');
   decorateTemplateAndTheme();
   const main = doc.querySelector('main');
   if (main) {
