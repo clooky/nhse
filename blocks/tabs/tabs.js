@@ -36,7 +36,7 @@ export default async function decorate(block) {
     tablinkitemlink.className = 'nhsuk-tabs__tab';
     tablinkitemlink.href = `#${id}`;
     tablinkitem.append(tablinkitemlink);
-    tablist.append(tablinkitem);
+    tablistlinks.append(tablinkitem);
     tablinkitemlink.innerHTML = tab.innerHTML;
 
     // build tab button
