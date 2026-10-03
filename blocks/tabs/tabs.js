@@ -28,7 +28,7 @@ export default async function decorate(block) {
     tabpanel.setAttribute('aria-hidden', !!i);
     tabpanel.setAttribute('aria-labelledby', `tab-${id}`);
     tabpanel.setAttribute('role', 'tabpanel');
-    // tablist.append(tabpanel);
+    tablist.append(tabpanel);
 
     // build tab links
     const tablinkitem = document.createElement('li');
