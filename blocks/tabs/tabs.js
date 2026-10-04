@@ -41,7 +41,7 @@ export default async function decorate(block) {
     // tabList.append(tabListItem);
 
     // build tab button
-    tab.remove();
+    // tab.remove();
   });
   tabs = [...block.children].map((child) => child.firstElementChild);
   tabs.forEach((tab, i) => {
