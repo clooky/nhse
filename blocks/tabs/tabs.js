@@ -43,10 +43,6 @@ export default async function decorate(block) {
     // build tab button
     tab.remove();
   });
-  tabs = [...block.children].map((child) => child.firstElementChild);
-  tabs.forEach((tab, i) => {
-    const tabpanel = block.children[i];
-  });
-  
+
   block.prepend(tabContainer);
 }
