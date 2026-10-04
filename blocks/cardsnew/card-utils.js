@@ -72,7 +72,10 @@ export default function processCard(currentCard, ctx) {
   currentCard.querySelector('picture')?.remove(); // Tech Debt remove all pictures
   const paragraphs = currentCard.querySelectorAll('p');
   const paragraphHTML = Array.from(paragraphs).map((p) => p.innerHTML).join('');
-
+  const cardHeadersAnchor = currentCard.querySelectorAll('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a');
+  cardHeadersAnchor.forEach(heading => {
+    heading.classList.add('nhsuk-card__heading', 'nhsuk-heading-m');
+  });
   if (isClickable) clickableClass = 'nhsuk-card--clickable';
 
   if (cardPicture) {
@@ -93,6 +96,6 @@ export default function processCard(currentCard, ctx) {
   const li = document.createElement('li');
   li.className = 'nhsuk-card-group__item';
   li.classList.add(listClassWidth);
-  li.innerHTML = card;
+  li.innerHTML = currentCard;
   return li;
 }
