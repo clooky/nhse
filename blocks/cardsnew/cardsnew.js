@@ -14,15 +14,15 @@ export default function decorate(block) {
   if (ctx.isFull) listClassWidth = 'nhsuk-grid-column-full';
   let clickableClass = '';
   let isClickable = ctx.isClickable;
-
-  const cardAnchor = currentCard.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a');
-  const cardAnchors = currentCard.querySelectorAll('a');
-  isClickable = cardAnchors.length === 1;
   
   /* change to ul, li */
   const ul = document.createElement('ul');
   ul.className = 'nhsuk-grid-row nhsuk-card-group';
   [...block.children].forEach((row) => {
+    let isClickable = ctx.isClickable;
+    const cardAnchor = row.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a');
+    const cardAnchors = row.querySelectorAll('a');
+    isClickable = cardAnchors.length === 1;
     // process card
     // const li = processCard(row, ctx);
     //ul.append(li);
