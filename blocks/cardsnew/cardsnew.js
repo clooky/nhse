@@ -48,7 +48,7 @@ export default function decorate(block) {
     });
     row.appendChild(contentWrapper);
 
-    if (clickable) {
+    if (isClickable) {
       const template = document.createElement('template');
       template.innerHTML = clickableSVGElement.trim(); // .trim() removes accidental leading spaces
       const svgNode = template.content.firstElementChild;
