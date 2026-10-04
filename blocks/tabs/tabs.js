@@ -28,7 +28,7 @@ export default async function decorate(block) {
     tabpanel.setAttribute('aria-hidden', !!i);
     tabpanel.setAttribute('aria-labelledby', `${id}`);
     tabpanel.setAttribute('role', 'tabpanel');
-    tabContainer.append(tabpanel);
+    // tabContainer.append(tabpanel);
 
     // build tab links
     const tabListItem = document.createElement('li');
@@ -38,10 +38,10 @@ export default async function decorate(block) {
     tabListItemLink.href = `#${id}`;
     tabListItemLink.innerHTML = tab.innerHTML;
     tabListItem.append(tabListItemLink);
-    // tabList.append(tabListItem);
+    tabList.append(tabListItem);
 
     // build tab button
-    // tab.remove();
+    tab.remove();
   });
   tabs = [...block.children].map((child) => child.firstElementChild);
   tabs.forEach((tab, i) => {
