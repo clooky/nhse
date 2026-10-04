@@ -34,6 +34,7 @@ export default function decorate(block) {
     // end of process card
     const listElement = document.createElement('li');
     listElement.className = 'nhsuk-card-group__item';
+    listElement.className.add(listClassWidth);
     row.before(listElement);
     listElement.appendChild(row);
     row.className = 'nhsuk-card';
