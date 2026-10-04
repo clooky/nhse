@@ -14,7 +14,7 @@ export default function decorate(block) {
   if (ctx.isFull) listClassWidth = 'nhsuk-grid-column-full';
   let clickableClass = '';
   let isClickable = ctx.isClickable;
-  const clickableElement = `
+  const clickableSVGElement = `
     <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
       <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-.3 5.8a1 1 0 1 0-1.5 1.4l2.9 2.8-2.9 2.8a1 1 0 0 0 1.5 1.4l3.5-3.5c.4-.4.4-1 0-1.4Z" />
     </svg>
@@ -43,13 +43,17 @@ export default function decorate(block) {
 
     const contentWrapper = document.createElement('div');
     contentWrapper.className = 'nhsuk-card__content';
-    // 3. Move all original grandchildren inside the new wrapper
-    // Array.from is used because childNodes updates live as you move elements
     Array.from(row.childNodes).forEach((node) => {
       contentWrapper.appendChild(node);
     });
-    // 4. Finally, put the new wrapper into the original child div
     row.appendChild(contentWrapper);
+
+    if (clickable) {
+      const template = document.createElement('template');
+      template.innerHTML = clickableSVGElement.trim(); // .trim() removes accidental leading spaces
+      const svgNode = template.content.firstElementChild;
+      row.appendChild(svgNode);
+    }
   });
 
   //block.textContent = '';
