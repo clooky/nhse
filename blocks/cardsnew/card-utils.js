@@ -72,10 +72,17 @@ export default function processCard(currentCard, ctx) {
   currentCard.querySelector('picture')?.remove(); // Tech Debt remove all pictures
   const paragraphs = currentCard.querySelectorAll('p');
   const paragraphHTML = Array.from(paragraphs).map((p) => p.innerHTML).join('');
-  const cardHeadersAnchor = currentCard.querySelectorAll('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a');
-  cardHeadersAnchor.forEach(heading => {
-    heading.classList.add('nhsuk-card__heading', 'nhsuk-heading-m');
+  // Select and loop through the anchors directly from currentCard
+  currentCard.querySelectorAll('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a').forEach(anchor => {
+    // 1. Add the link class to the anchor itself
+    anchor.classList.add('nhsuk-card__link');
+    // 2. Find the parent heading (h1-h6) inside currentCard and add its classes
+    const heading = anchor.parentElement;
+    if (heading) {
+      heading.classList.add('nhsuk-card__heading', 'nhsuk-heading-m');
+    }
   });
+
   if (isClickable) clickableClass = 'nhsuk-card--clickable';
 
   if (cardPicture) {
