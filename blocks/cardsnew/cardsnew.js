@@ -1,4 +1,4 @@
-import processCard from './cards-utils.js';
+import processCard from './card-utils.js';
 
 export default function decorate(block) {
   const ctx = {};
