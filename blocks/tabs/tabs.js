@@ -12,6 +12,7 @@ export default async function decorate(block) {
   tabHeading.innerText = 'Contents';
   tabContainer.append(tabHeading);
 
+  // create tablist and add to container
   const tabList = document.createElement('ul');
   tabList.className = 'nhsuk-tabs__list';
   tabContainer.append(tabList);
