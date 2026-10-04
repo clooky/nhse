@@ -61,15 +61,19 @@ export default function processCard(currentCard, ctx) {
   if (ctx.isHalf) listClassWidth = 'nhsuk-grid-column-one-half';
   if (ctx.isFull) listClassWidth = 'nhsuk-grid-column-full';
   let clickableClass = '';
-  if (ctx.isClickable) clickableClass = 'nhsuk-card--clickable';
+  let isClickable = ctx.isClickable;
 
   const cardAnchor = currentCard.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a');
+  const cardAnchors = currentCard.querySelectorAll('a');
+  isClickable = cardAnchors.length === 1;
   const linkHref = cardAnchor?.getAttribute('href') || '';
   const linkText = cardAnchor?.textContent || '';
   const cardPicture = currentCard.querySelector('img');
   currentCard.querySelector('picture')?.remove(); // Tech Debt remove all pictures
   const paragraphs = currentCard.querySelectorAll('p');
   const paragraphHTML = Array.from(paragraphs).map((p) => p.innerHTML).join('');
+
+  if (isClickable) clickableClass = 'nhsuk-card--clickable';
 
   if (cardPicture) {
     card = makePictureCard(linkHref, linkText, paragraphHTML, cardPicture.src);
