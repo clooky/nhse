@@ -110,16 +110,16 @@ async function loadLazy(doc) {
 
   // 2. Load your custom prebuilt minified JavaScript file
   import('./nhsuk-frontend-10/nhsuk-frontend-10.6.1.min.js')
-  .then((module) => {
-    // Destructure or call initAll from the imported module object
-    module.initAll({
-      errorSummary: { disableAutoFocus: true },
-      notificationBanner: { disableAutoFocus: true }
+    .then((module) => {
+      // Destructure or call initAll from the imported module object
+      module.initAll({
+        errorSummary: { disableAutoFocus: true },
+        notificationBanner: { disableAutoFocus: true }
+      });
+    })
+    .catch((error) => {
+      console.error('Failed to lazy load the NHS.UK frontend script:', error);
     });
-  })
-  .catch((error) => {
-    console.error('Failed to lazy load the NHS.UK frontend script:', error);
-  });
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
   loadFonts();
