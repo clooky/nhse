@@ -43,6 +43,10 @@ export default async function decorate(block) {
     // build tab button
     tab.remove();
   });
+  const panels = block.getElementsByClassName("nhsuk-tabs__panel");
+  panels.forEach(panel => {
+    tabContainer.appendChild(panel);
+  });
 
   block.prepend(tabContainer);
 }
