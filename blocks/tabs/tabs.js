@@ -38,11 +38,15 @@ export default async function decorate(block) {
     tabListItemLink.href = `#${id}`;
     tabListItemLink.innerHTML = tab.innerHTML;
     tabListItem.append(tabListItemLink);
-    tabList.append(tabListItem);
+    // tabList.append(tabListItem);
 
     // build tab button
     tab.remove();
   });
-
+  tabs = [...block.children].map((child) => child.firstElementChild);
+  tabs.forEach((tab, i) => {
+    const tabpanel = block.children[i];
+  });
+  
   block.prepend(tabContainer);
 }
