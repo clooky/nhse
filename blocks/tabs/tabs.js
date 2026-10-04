@@ -25,26 +25,23 @@ export default async function decorate(block) {
     const tabpanel = block.children[i];
     tabpanel.className = 'nhsuk-tabs__panel';
     tabpanel.id = `${id}`;
-    // tabpanel.setAttribute('aria-hidden', !!i);
-    // tabpanel.setAttribute('aria-labelledby', `tab_${id}`);
-    // tabpanel.setAttribute('role', 'tabpanel');
-    // tabContainer.append(tabpanel);
-
+  
     // build tab links
     const tabListItem = document.createElement('li');
     tabListItem.className = 'nhsuk-tabs__list-item';
     const tabListItemLink = document.createElement('a');
     tabListItemLink.className = 'nhsuk-tabs__tab';
-    // tabListItemLink.id = `tab_${id}`;
     tabListItemLink.href = `#${id}`;
     tabListItemLink.innerText = tab.innerText;
     tabListItem.append(tabListItemLink);
     tabList.append(tabListItem);
 
-    // build tab button
+    // remove tab text div from block
     tab.remove();
   });
+
+  // move tab panels to tabContainer
   [...block.getElementsByClassName("nhsuk-tabs__panel")]
       .forEach(panel => tabContainer.appendChild(panel));
     block.prepend(tabContainer);
-  }
+}
