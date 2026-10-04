@@ -84,7 +84,7 @@ export default function processCard(currentCard, ctx) {
   });
 
   if (isClickable) clickableClass = 'nhsuk-card--clickable';
-
+  /*
   if (cardPicture) {
     card = makePictureCard(linkHref, linkText, paragraphHTML, cardPicture.src);
   } else if (ctx.isTop) {
@@ -100,9 +100,10 @@ export default function processCard(currentCard, ctx) {
   } else {
     card = makeSecondaryCard(linkHref, linkText, paragraphHTML);
   }
+  */
   const li = document.createElement('li');
   li.className = 'nhsuk-card-group__item';
   li.classList.add(listClassWidth);
-  li.innerHTML = currentCard;
+  li.innerHTML = currentCard.innerHTML;
   return li;
 }
