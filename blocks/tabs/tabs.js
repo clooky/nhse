@@ -25,9 +25,9 @@ export default async function decorate(block) {
     const tabpanel = block.children[i];
     tabpanel.className = 'nhsuk-tabs__panel';
     tabpanel.id = `${id}`;
-    tabpanel.setAttribute('aria-hidden', !!i);
-    tabpanel.setAttribute('aria-labelledby', `${id}`);
-    tabpanel.setAttribute('role', 'tabpanel');
+    // tabpanel.setAttribute('aria-hidden', !!i);
+    // tabpanel.setAttribute('aria-labelledby', `tab_${id}`);
+    // tabpanel.setAttribute('role', 'tabpanel');
     // tabContainer.append(tabpanel);
 
     // build tab links
@@ -35,8 +35,9 @@ export default async function decorate(block) {
     tabListItem.className = 'nhsuk-tabs__list-item';
     const tabListItemLink = document.createElement('a');
     tabListItemLink.className = 'nhsuk-tabs__tab';
+    // tabListItemLink.id = `tab_${id}`;
     tabListItemLink.href = `#${id}`;
-    tabListItemLink.innerHTML = tab.innerHTML;
+    tabListItemLink.innerText = tab.innerText;
     tabListItem.append(tabListItemLink);
     tabList.append(tabListItem);
 
