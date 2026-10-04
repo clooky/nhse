@@ -23,6 +23,16 @@ export default function decorate(block) {
     row.before(listElement);
     listElement.appendChild(row);
     row.className = 'nhsuk-card';
+
+    const contentWrapper = document.createElement('div');
+    contentWrapper.className = 'nhsuk-card__content';
+    // 3. Move all original grandchildren inside the new wrapper
+    // Array.from is used because childNodes updates live as you move elements
+    Array.from(row.childNodes).forEach((node) => {
+      contentWrapper.appendChild(node);
+    });
+    // 4. Finally, put the new wrapper into the original child div
+    row.appendChild(contentWrapper);
   });
 
   //block.textContent = '';
