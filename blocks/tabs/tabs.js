@@ -25,7 +25,7 @@ export default async function decorate(block) {
     const tabpanel = block.children[i];
     tabpanel.className = 'nhsuk-tabs__panel';
     tabpanel.id = `${id}`;
-  
+
     // build tab links
     const tabListItem = document.createElement('li');
     tabListItem.className = 'nhsuk-tabs__list-item';
@@ -42,6 +42,6 @@ export default async function decorate(block) {
 
   // move tab panels to tabContainer
   [...block.getElementsByClassName("nhsuk-tabs__panel")]
-      .forEach(panel => tabContainer.appendChild(panel));
-    block.prepend(tabContainer);
+    .forEach(panel => tabContainer.appendChild(panel));
+      block.prepend(tabContainer);
 }
