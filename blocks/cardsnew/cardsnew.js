@@ -22,6 +22,7 @@ export default function decorate(block) {
     listElement.className = 'nhsuk-card-group__item';
     row.before(listElement);
     listElement.appendChild(row);
+    row.className = 'nhsuk-card';
   });
 
   //block.textContent = '';
