@@ -15,11 +15,15 @@ export default function decorate(block) {
   ul.className = 'nhsuk-grid-row nhsuk-card-group';
   [...block.children].forEach((row) => {
     // process card
-    const li = processCard(row, ctx);
-    ul.append(li);
+    // const li = processCard(row, ctx);
+    //ul.append(li);
     // end of process card
+    const listElement = document.createElement('li');
+    listElement.className = 'nhsuk-card-group__item';
+    row.before(listElement);
+    listElement.appendChild(row);
   });
 
-  block.textContent = '';
+  //block.textContent = '';
   block.append(ul);
 }
