@@ -36,6 +36,7 @@ export default function decorate(block) {
     listElement.className = 'nhsuk-card-group__item';
     listElement.classList.add(listClassWidth);
     row.before(listElement);
+    ul.appendChild(listElement);
     listElement.appendChild(row);
     row.className = 'nhsuk-card';
     if (isClickable) row.classList.add('nhsuk-card--clickable');
