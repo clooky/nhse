@@ -1,3 +1,5 @@
+import processCard from './cards-utils.js';
+
 export default function decorate(block) {
   const ctx = {};
   ctx.isTop = block.classList.contains('top');
