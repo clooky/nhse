@@ -41,7 +41,7 @@ export default async function decorate(block) {
   });
 
   // move tab panels to tabContainer
-  [...block.getElementsByClassName("nhsuk-tabs__panel")]
-    .forEach(panel => tabContainer.appendChild(panel));
-      block.prepend(tabContainer);
+  [...block.getElementsByClassName('nhsuk-tabs__panel')]
+    .forEach((panel) => tabContainer.appendChild(panel));
+  block.prepend(tabContainer);
 }
