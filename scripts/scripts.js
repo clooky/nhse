@@ -114,7 +114,7 @@ async function loadLazy(doc) {
       // Destructure or call initAll from the imported module object
       module.initAll({
         errorSummary: { disableAutoFocus: true },
-        notificationBanner: { disableAutoFocus: true }
+        notificationBanner: { disableAutoFocus: true },
       });
     })
     .catch((error) => {
