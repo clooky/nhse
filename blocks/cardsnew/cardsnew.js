@@ -1,5 +1,3 @@
-import processCard from './card-utils.js';
-
 export default function decorate(block) {
   const ctx = {};
   ctx.isTop = block.classList.contains('top');
@@ -28,10 +26,6 @@ export default function decorate(block) {
     const cardAnchor = row.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a');
     const cardAnchors = row.querySelectorAll('a');
     isClickable = cardAnchors.length === 1;
-    // process card
-    // const li = processCard(row, ctx);
-    //ul.append(li);
-    // end of process card
     const listElement = document.createElement('li');
     listElement.className = 'nhsuk-card-group__item';
     listElement.classList.add(listClassWidth);
@@ -58,6 +52,5 @@ export default function decorate(block) {
     }
   });
 
-  //block.textContent = '';
   block.append(ul);
 }
