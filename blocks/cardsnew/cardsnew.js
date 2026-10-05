@@ -22,7 +22,7 @@ export default function decorate(block) {
   ul.className = 'nhsuk-grid-row nhsuk-card-group';
   [...block.children].forEach((row) => {
     // add the nhs classes to the headings and anchors
-    row.querySelectorAll('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a').forEach(anchor => {
+    row.querySelectorAll('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a').forEach((anchor) => {
       anchor.classList.add('nhsuk-card__link');
       const heading = anchor.parentElement;
       if (heading) {
