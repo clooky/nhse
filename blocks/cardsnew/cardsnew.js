@@ -10,7 +10,7 @@ export default function decorate(block) {
   let listClassWidth = 'nhsuk-grid-column-one-third';
   if (ctx.isHalf) listClassWidth = 'nhsuk-grid-column-one-half';
   if (ctx.isFull) listClassWidth = 'nhsuk-grid-column-full';
-  let isClickable = ctx.isClickable;
+  let { isClickable } = ctx;
   const clickableSVGElement = `
     <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
       <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-.3 5.8a1 1 0 1 0-1.5 1.4l2.9 2.8-2.9 2.8a1 1 0 0 0 1.5 1.4l3.5-3.5c.4-.4.4-1 0-1.4Z" />
