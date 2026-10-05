@@ -10,20 +10,25 @@ export default function decorate(block) {
   let listClassWidth = 'nhsuk-grid-column-one-third';
   if (ctx.isHalf) listClassWidth = 'nhsuk-grid-column-one-half';
   if (ctx.isFull) listClassWidth = 'nhsuk-grid-column-full';
-  let clickableClass = '';
   let isClickable = ctx.isClickable;
   const clickableSVGElement = `
     <svg class="nhsuk-icon nhsuk-icon--chevron-right-circle" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="16" height="16" focusable="false" aria-hidden="true">
       <path d="M12 2a10 10 0 1 1 0 20 10 10 0 0 1 0-20Zm-.3 5.8a1 1 0 1 0-1.5 1.4l2.9 2.8-2.9 2.8a1 1 0 0 0 1.5 1.4l3.5-3.5c.4-.4.4-1 0-1.4Z" />
     </svg>
   `;
-  
+
   /* change to ul, li */
   const ul = document.createElement('ul');
   ul.className = 'nhsuk-grid-row nhsuk-card-group';
   [...block.children].forEach((row) => {
-    let isClickable = ctx.isClickable;
-    const cardAnchor = row.querySelector('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a');
+    // add the nhs classes to the headings and anchors
+    currentCard.querySelectorAll('h1 a, h2 a, h3 a, h4 a, h5 a, h6 a').forEach(anchor => {
+      anchor.classList.add('nhsuk-card__link');
+      const heading = anchor.parentElement;
+      if (heading) {
+        heading.classList.add('nhsuk-card__heading', 'nhsuk-heading-m');
+      }
+    });
     const cardAnchors = row.querySelectorAll('a');
     isClickable = cardAnchors.length === 1;
     const listElement = document.createElement('li');
